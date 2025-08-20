@@ -1,0 +1,10 @@
+{
+    "definitionName": "IP-isolutions-office",
+    "displayName": "IPs: isolutions AG (Office Locations)",
+    "isTrusted": true,
+    "ipRanges": [
+        {
+            "cidrAddress": "212.98.37.52/32"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+     "definitionName": "Country-Critical-Medium",
+    "displayName": "Region: Critical - medium risk",
+    "countriesAndRegions": [
+        "TR",
+        "AE",
+        "SA",
+        "EG",
+        "IQ",
+        "JO",
+        "PK",
+        "VN",
+        "KZ",
+        "AZ",
+        "ET",
+        "NG"
+    ],
+    "includeUnknownCountriesAndRegions": false,
+    "countryLookupMethod": "clientIpAddress"
+}

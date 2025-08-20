@@ -1,0 +1,22 @@
+{
+     "definitionName": "Country-Critical-High",
+    "displayName": "Region: Critical - high risk",
+    "countriesAndRegions": [
+        "CN",
+        "HK",
+        "MO",
+        "RU",
+        "IR",
+        "KP",
+        "CU",
+        "VE",
+        "BY",
+        "MM",
+        "SY",
+        "TM",
+        "ER",
+        "SD"
+    ],
+    "includeUnknownCountriesAndRegions": false,
+    "countryLookupMethod": "clientIpAddress"
+}

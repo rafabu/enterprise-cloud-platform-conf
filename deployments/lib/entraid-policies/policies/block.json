@@ -1,0 +1,67 @@
+{
+    "archetypeName": "base-block-critical-regions",
+    "displayName": "290 - all - base protection - all apps: block access from critical regions",
+    "state": "enabled",
+    "sessionControls": null,
+    "conditions": {
+        "userRiskLevels": [],
+        "signInRiskLevels": [],
+        "clientAppTypes": [
+            "all"
+        ],
+        "servicePrincipalRiskLevels": [],
+        "insiderRiskLevels": null,
+        "platforms": null,
+        "devices": null,
+        "clientApplications": null,
+        "authenticationFlows": null,
+        "applications": {
+            "includeApplications": [
+                "All"
+            ],
+            "excludeApplications": [],
+            "includeUserActions": [],
+            "includeAuthenticationContextClassReferences": [],
+            "applicationFilter": null
+        },
+        "users": {
+            "includeUsers": [
+                "All"
+            ],
+            "excludeUsers": [
+                "cfbfbbbb-21af-4b70-b9fe-04cf0a9130a6"
+            ],
+            "excludeUsers_reference": [
+                "tenant-emergency-admin-01"
+            ],
+            "includeGroups": [],
+            "excludeGroups": [],
+            "includeRoles": [],
+            "excludeRoles": [],
+            "includeGuestsOrExternalUsers": null,
+            "excludeGuestsOrExternalUsers": null
+        },
+        "locations": {
+            "includeLocations": [
+                "198f89ef-431d-4d86-b531-a1076bf84da8",
+                "1d64c753-0f02-4834-9d2c-b973a4fb12ad",
+                "12702662-058b-46d8-b769-c2cbfe53066c"
+            ],
+            "includeLocations_reference": [
+                "Country-Critical-High",
+                "Country-Critical-Medium",
+                "Country-Critical-Elevated"
+            ],
+            "excludeLocations": []
+        }
+    },
+    "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+            "block"
+        ],
+        "customAuthenticationFactors": [],
+        "termsOfUse": [],
+        "authenticationStrength": null
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "definitionName": "Country-CH",
+    "displayName": "Country: CH (Switzerland)",
+    "countriesAndRegions": [
+        "CH"
+    ],
+    "includeUnknownCountriesAndRegions": false,
+    "countryLookupMethod": "clientIpAddress"
+}
