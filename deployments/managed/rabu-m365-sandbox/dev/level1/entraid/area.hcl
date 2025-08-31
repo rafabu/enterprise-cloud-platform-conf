@@ -1,7 +1,3 @@
-# include {
-#   path = find_in_parent_folders("level.hcl")
-# }
-
 locals {
     deployment-area = "area-stuff"
 

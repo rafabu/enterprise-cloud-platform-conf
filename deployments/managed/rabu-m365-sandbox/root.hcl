@@ -1,4 +1,12 @@
+
+
 locals {
+  ecp_tg_folder_matchstring = "^(.*)/(?:.*?/){4}((?:.+?/){2}.+?)$"
+  ecp_config_repo_folder = regexall(local.ecp_tg_folder_matchstring, get_terragrunt_dir())[0][0]
+  ecp_component_path = regexall(local.ecp_tg_folder_matchstring, get_terragrunt_dir())[0][1]
+
+
+
     env_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
     level_vars = read_terragrunt_config(find_in_parent_folders("level.hcl"))
     area_vars = read_terragrunt_config(find_in_parent_folders("level.hcl"))
@@ -11,8 +19,11 @@ locals {
   launchpad_resource_group_name  = local.merged_locals.launchpad_resource_group_name
   launchpad_storage_account_name = local.merged_locals.launchpad_storage_account_name
 
-  modules_repo = "https://github.com:rafabu/enterprise-cloud-platform-azure.git"
-  modules_repo_version      = "main"
+  azure_modules_repo = "github.com/rafabu/enterprise-cloud-platform-azure.git"
+  azure_modules_repo_version      = "main"
+
+  artefact_library_repo = "github.com/rafabu/enterprise-cloud-platform-lib.git"
+  artefact_library_repo_version      = "main"
 
   root_local = "root-stuff"
 
@@ -50,6 +61,9 @@ remote_state {
 
 inputs = {
   basename-root       = "root-name"
+
+  ecp-repo-folder = local.ecp_config_repo_folder
+  ecp-component-path = local.ecp_component_path
 
  
 }
