@@ -4,23 +4,23 @@
 # root common (via git submodule)
 include "root-common" {
   path = format("%s/lib/terragrunt-common/ecp-v1/root-common.hcl", get_repo_root())
-  expose = false
+  expose = true # allow pulling in tags
 }
 include "root" {
   path = find_in_parent_folders("root.hcl")
-  expose = true
+  expose = false
 }
 include "env" {
   path = find_in_parent_folders("env.hcl")
-  expose = true
+  expose = false
 }
 include "level" {
   path = find_in_parent_folders("level.hcl")
-  expose = true
+  expose = false
 }
 include "area" {
   path = find_in_parent_folders("area.hcl")
-  expose = true
+  expose = false
 }
 # unit common (via git submodule)
 include "unit-common" {
@@ -28,26 +28,19 @@ include "unit-common" {
   expose = false
 }
 
-terraform {
-  source = "git::${include.root.locals.azure_modules_repo}/modules-tf//entraid-policies" # ?ref=${include.root.locals.azure_modules_repo_version}"
-}
-
 locals {
   module_azure_tags = {
+    "_ecpTgUnit" = format("%s/terragrunt.hcl", get_terragrunt_dir())
     workloadBlockName  = "pol"
     createdBy = "ecpa-terraform"
   }
-
-  merged_azure_tags = merge(
-    include.root.locals.root_azure_tags,
-    include.env.locals.env_azure_tags,
-    include.level.locals.level_azure_tags,
-    include.area.locals.area_azure_tags,
-    local.module_azure_tags
-  )
 }
 
 inputs = {
  # unit inputs mostly from unit-common.hcl
+ tags = merge(
+    include.root-common.locals.merged_azure_tags,
+    local.module_azure_tags
+  )
 }
 

@@ -1,14 +1,9 @@
 locals {
-    deployment-area = "area-stuff"
-
     area_azure_tags = {
+    "_ecpTgUnitArea" = format("%s/area.hcl", get_parent_terragrunt_dir())
     workloadDescription  = "Entra ID"
-    
   }
 }
 
-
-
 inputs = {
-  basename-area       = "area-name"
 }
