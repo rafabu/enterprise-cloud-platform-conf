@@ -1,7 +1,10 @@
 locals {
-    area_azure_tags = {
+  ecp_deployment_area = "entraid"
+  
+  area_azure_tags = {
     "_ecpTgUnitArea" = format("%s/area.hcl", get_parent_terragrunt_dir())
-    workloadDescription  = "Entra ID"
+
+    workloadDescription  = local.ecp_deployment_area
   }
 }
 
