@@ -7,6 +7,8 @@ ecp_entra_tenant_id = "19aa2d31-c461-4697-8786-15e6436f6783"
 ecp_deployment_code = "rabu" # think as "customer code"
 ecp_deployment_number = "7"
 
+ecp_azure_main_location = "SwitzerlandNorth"
+
   root_azure_tags = {
     "_ecpTgUnitRoot" = format("%s/root.hcl", get_parent_terragrunt_dir())
 
