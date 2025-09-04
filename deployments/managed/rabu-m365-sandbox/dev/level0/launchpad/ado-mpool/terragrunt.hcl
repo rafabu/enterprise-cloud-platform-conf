@@ -32,7 +32,7 @@ locals {
   module_azure_tags = {
     "_ecpTgUnit" = format("%s/terragrunt.hcl", get_terragrunt_dir())
 
-    workloadBlockName  = "policies"
+    workloadBlockName  = "ado"
   }
 }
 
