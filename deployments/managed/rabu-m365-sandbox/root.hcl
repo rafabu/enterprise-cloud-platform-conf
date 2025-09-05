@@ -10,7 +10,7 @@ ecp_deployment_number = "7"
 ecp_azure_main_location = "SwitzerlandNorth"
 
   root_azure_tags = {
-    "_ecpTgUnitRoot" = format("%s/root.hcl", get_parent_terragrunt_dir())
+    "hidden-ecpTgUnitRoot" = format("%s/root.hcl", get_parent_terragrunt_dir())
 
     businessUnit  = "enterprise-platform-team"
     workloadName = "ecpa"
@@ -18,5 +18,14 @@ ecp_azure_main_location = "SwitzerlandNorth"
   }
 }
 
-inputs = {
-}
+inputs = merge(
+  {
+   azure_tags = local.root_azure_tags
+  },
+   length(try(local.ecp_azure_main_location, "")) > 0 ? {
+      azure_location = local.ecp_azure_main_location
+  } : {},
+   length(try(local.ecp_network_main_ipv4_address_space, "")) > 0 ? {
+      ecp_network_main_ipv4_address_space = local.ecp_network_main_ipv4_address_space
+  } : {}
+)

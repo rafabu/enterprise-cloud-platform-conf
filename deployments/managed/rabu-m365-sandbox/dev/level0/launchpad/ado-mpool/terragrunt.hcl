@@ -4,7 +4,7 @@
 # root common (via git submodule)
 include "root-common" {
   path = format("%s/lib/terragrunt-common/ecp-v1/root-common.hcl", get_repo_root())
-  expose = true # allow pulling in tags
+  expose = false # allow pulling in tags
 }
 include "root" {
   path = find_in_parent_folders("root.hcl")
@@ -30,7 +30,7 @@ include "unit-common" {
 
 locals {
   module_azure_tags = {
-    "_ecpTgUnit" = format("%s/terragrunt.hcl", get_terragrunt_dir())
+    "hidden-ecpTgUnit" = format("%s/terragrunt.hcl", get_terragrunt_dir())
 
     workloadBlockName  = "ado"
   }
@@ -38,9 +38,6 @@ locals {
 
 inputs = {
  # unit inputs mostly from unit-common.hcl
- tags = merge(
-    include.root-common.locals.merged_azure_tags,
-    local.module_azure_tags
-  )
+azure_tags = local.module_azure_tags
 }
 

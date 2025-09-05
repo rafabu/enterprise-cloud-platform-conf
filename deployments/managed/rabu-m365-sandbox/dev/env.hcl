@@ -3,12 +3,24 @@ locals {
 
   ecp_deployment_env = "dev"
 
+  ecp_network_main_ipv4_address_space = "10.224.0.0/16" # IPv4 address from which ECP networks will be derived; normally the lowest IP a /16 address space
+
   env_azure_tags = {
-    "_ecpTgUnitEnv" = format("%s/env.hcl", get_parent_terragrunt_dir())
+    "hidden-ecpTgUnitEnv" = format("%s/env.hcl", get_parent_terragrunt_dir())
 
     workloadEnvironment  = local.ecp_deployment_env
   }
 }
 
-inputs = {
-}
+inputs = merge (
+  {
+  azure_tags = local.env_azure_tags
+  },
+  length(try(local.ecp_azure_main_location, "")) > 0 ? {
+      azure_location = local.ecp_azure_main_location
+  } : {},
+  length(try(local.ecp_network_main_ipv4_address_space, "")) > 0 ? {
+      ecp_network_main_ipv4_address_space = local.ecp_network_main_ipv4_address_space
+  } : {}
+)
+  

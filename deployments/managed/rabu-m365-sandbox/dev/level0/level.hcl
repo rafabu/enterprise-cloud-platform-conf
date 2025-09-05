@@ -5,11 +5,12 @@ locals {
   ecp_deployment_level = "0"
 
   level_azure_tags = {
-          "_ecpTgUnitLevel" = format("%s/level.hcl", get_parent_terragrunt_dir())
+          "hidden-ecpTgUnitLevel" = format("%s/level.hcl", get_parent_terragrunt_dir())
 
 
   }
 }
 
 inputs = {
+  azure_tags = local.level_azure_tags
 }
