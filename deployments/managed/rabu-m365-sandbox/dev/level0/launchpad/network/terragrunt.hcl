@@ -4,7 +4,7 @@
 # root common (via git submodule)
 include "root-common" {
   path = format("%s/lib/terragrunt-common/ecp-v1/root-common.hcl", get_repo_root())
-  expose = true # allow pulling in tags
+  expose = false
   merge_strategy = "deep"
 }
 include "root" {

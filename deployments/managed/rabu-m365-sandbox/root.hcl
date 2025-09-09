@@ -9,6 +9,7 @@ ecp_deployment_number = "7"
 
 ecp_azure_main_location = "SwitzerlandNorth"
 
+
   root_azure_tags = {
     "hidden-ecpTgUnitRoot" = format("%s/root.hcl", get_parent_terragrunt_dir())
 
@@ -27,5 +28,11 @@ inputs = merge(
   } : {},
    length(try(local.ecp_network_main_ipv4_address_space, "")) > 0 ? {
       ecp_network_main_ipv4_address_space = local.ecp_network_main_ipv4_address_space
+  } : {},
+  length(try(local.ecp_azure_devops_organization_name, "")) > 0 ? {
+      ecp_azure_devops_organization_name = local.ecp_azure_devops_organization_name
+  } : {},
+  length(try(local.ecp_azure_root_parent_management_group_id, "")) > 0 ? {
+      ecp_azure_root_parent_management_group_id = local.ecp_azure_root_parent_management_group_id
   } : {}
 )
