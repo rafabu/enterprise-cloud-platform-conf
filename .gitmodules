@@ -1,6 +1,3 @@
-[submodule "lib/ecp-automation"]
-	path = lib/ecp-automation
-	url = https://github.com/rafabu/enterprise-cloud-platform-automation.git
 [submodule "lib/ecp-lib"]
 	path = lib/ecp-lib
 	url = https://github.com/rafabu/enterprise-cloud-platform-lib.git
