@@ -30,7 +30,7 @@ include "unit-common" {
 
 locals {
   module_azure_tags = {
-    "hidden-ecpTgUnit" = format("%s/terragrunt.hcl", get_terragrunt_dir())
+    # "hidden-ecpTgUnit" = format("%s/terragrunt.hcl", get_terragrunt_dir())
 
     workloadBlockName = "policies"
   }

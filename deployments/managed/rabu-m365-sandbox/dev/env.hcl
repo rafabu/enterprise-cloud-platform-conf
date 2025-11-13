@@ -10,7 +10,7 @@ locals {
   ecp_azure_devops_repository_name   = "ECP.Automation"
 
   env_azure_tags = {
-    "hidden-ecpTgUnitEnv" = format("%s/env.hcl", get_parent_terragrunt_dir())
+    # "hidden-ecpTgUnitEnv" = format("%s/env.hcl", get_parent_terragrunt_dir())
 
     workloadEnvironment = local.ecp_deployment_env
   }

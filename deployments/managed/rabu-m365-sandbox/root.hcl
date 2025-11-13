@@ -11,7 +11,7 @@ locals {
 
 
   root_azure_tags = {
-    "hidden-ecpTgUnitRoot" = format("%s/root.hcl", get_parent_terragrunt_dir())
+    # "hidden-ecpTgUnitRoot" = format("%s/root.hcl", get_parent_terragrunt_dir())
 
     businessUnit  = "enterprise-platform-team"
     workloadName  = "ecpa"
