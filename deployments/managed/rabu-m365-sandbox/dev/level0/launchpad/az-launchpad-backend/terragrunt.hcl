@@ -1,5 +1,5 @@
 # includes merge "inputs", with last include taking precedence over previously defined.
-#     expose: allows content (e.g. locals) to be used by "include" 
+#     expose: allows content (e.g. locals) to be used by "include"
 
 # root common (via git submodule)
 include "root-common" {
