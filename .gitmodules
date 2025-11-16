@@ -1,9 +1,12 @@
 [submodule "lib/ecp-lib"]
 	path = lib/ecp-lib
 	url = https://github.com/rafabu/enterprise-cloud-platform-lib.git
+	branch = main
 [submodule "lib/terragrunt-common"]
 	path = lib/terragrunt-common
 	url = https://github.com/rafabu/enterprise-cloud-platform-tgcommon.git
+	branch = main
 [submodule "lib/ecp-automation"]
 	path = lib/ecp-automation
 	url = https://github.com/rafabu/enterprise-cloud-platform-automation.git
+	branch = main
