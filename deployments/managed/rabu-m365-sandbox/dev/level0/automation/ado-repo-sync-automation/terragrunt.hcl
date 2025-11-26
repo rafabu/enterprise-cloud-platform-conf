@@ -45,8 +45,5 @@ locals {
 inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
-
-  ecp_azure_devops_repository_name = include.env.locals.ecp_azure_devops_automation_repository_name # 
-
 }
 
