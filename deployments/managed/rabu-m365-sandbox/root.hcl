@@ -35,8 +35,11 @@ inputs = merge(
   length(try(local.ecp_azure_devops_project_name, "")) > 0 ? {
     ecp_azure_devops_project_name = local.ecp_azure_devops_project_name
   } : {},
-  length(try(local.ecp_azure_devops_repository_name, "")) > 0 ? {
-    ecp_azure_devops_repository_name = local.ecp_azure_devops_repository_name
+  length(try(local.ecp_azure_devops_automation_repository_name, "")) > 0 ? {
+    ecp_azure_devops_automation_repository_name = local.ecp_azure_devops_automation_repository_name
+  } : {},
+  length(try(local.ecp_azure_devops_configuration_repository_name, "")) > 0 ? {
+    ecp_azure_devops_configuration_repository_name = local.ecp_azure_devops_configuration_repository_name
   } : {},
   length(try(local.ecp_azure_root_parent_management_group_id, "")) > 0 ? {
     ecp_azure_root_parent_management_group_id = local.ecp_azure_root_parent_management_group_id

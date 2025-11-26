@@ -7,7 +7,8 @@ locals {
 
   ecp_azure_devops_organization_name = "rabuzu-m365"
   ecp_azure_devops_project_name      = "ECP"
-  ecp_azure_devops_repository_name   = "ECP.Automation"
+  ecp_azure_devops_automation_repository_name   = "ECP.Automation"
+  ecp_azure_devops_configuration_repository_name   = "ECP.Configuration"
 
   env_azure_tags = {
     # "hidden-ecpTgUnitEnv" = format("%s/env.hcl", get_parent_terragrunt_dir())
@@ -32,8 +33,8 @@ inputs = merge(
   length(try(local.ecp_azure_devops_project_name, "")) > 0 ? {
     ecp_azure_devops_project_name = local.ecp_azure_devops_project_name
   } : {},
-  length(try(local.ecp_azure_devops_repository_name, "")) > 0 ? {
-    ecp_azure_devops_repository_name = local.ecp_azure_devops_repository_name
+  length(try(local.ecp_azure_devops_automation_repository_name, "")) > 0 ? {
+    ecp_azure_devops_automation_repository_name = local.ecp_azure_devops_automation_repository_name
   } : {},
   length(try(local.ecp_azure_root_parent_management_group_id, "")) > 0 ? {
     ecp_azure_root_parent_management_group_id = local.ecp_azure_root_parent_management_group_id
