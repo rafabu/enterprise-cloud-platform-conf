@@ -1,6 +1,6 @@
 locals {
-  ecp_launchpad_resource_group_name  = "rabu-d7-rg-ecpalp-level1"
-  ecp_launchpad_storage_account_name = "rabud7saecpalpl1"
+  # ecp_launchpad_resource_group_name  = "rabu-d7-rg-ecpalp-tfbcknd"
+  # ecp_launchpad_storage_account_name = "rabud7stecpalptfbckndl1"
 
   ecp_deployment_level = "1"
 
