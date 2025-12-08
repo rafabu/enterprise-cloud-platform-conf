@@ -1,5 +1,12 @@
 locals {
+  # platform subscriptions
+  #    if any is null-guid, its services are merged into management subscription
+  #         NOTE: it is recommended to have a 5 subscription platform setup
+  ecp_management_subscription_id = "5c838b6a-9149-423a-9de4-ff1682f70388"
   ecp_launchpad_subscription_id = "e1b3be0d-0df0-4e0a-a585-ffc97f60bd42"
+  ecp_network_subscription_id = "2ad5a985-e423-4a91-aea0-248c51b2e1cc"
+  ecp_identity_subscription_id = "00000000-0000-0000-0000-000000000000"
+  ecp_security_subscription_id = "00000000-0000-0000-0000-000000000000"
 
   ecp_deployment_env = "dev"
 

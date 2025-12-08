@@ -76,3 +76,7 @@ terragrunt-debug.tfvars.json
 .history
 .ionide
 
+
+# Azure Landing Zones provider
+.alzlib
+
