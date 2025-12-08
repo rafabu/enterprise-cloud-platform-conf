@@ -1,5 +1,5 @@
 locals {
-  ecp_deployment_area = "ecpa"
+  ecp_deployment_area = "ecparoot"
 
   area_azure_tags = {
     # "hidden-ecpTgUnitArea" = format("%s/area.hcl", get_parent_terragrunt_dir())
