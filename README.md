@@ -71,33 +71,6 @@ root.hcl          → Engagement-wide settings (tenant ID, deployment code, loca
               └── terragrunt.hcl  → Unit-specific configuration
 ```
 
-### Areas
-
-Within each level, resources are grouped into **areas** representing functional domains:
-
-- **bootstrap** - Initial setup resources
-- **launchpad** - Core launchpad infrastructure (backend, network, DevOps)
-- **automation** - CI/CD pipelines and automation
-- **ecproot** - Platform root resources
-- **entraid** - Entra ID (Azure AD) policies and configuration
-- **management** - Azure management and governance resources
-
-## Git Submodules
-
-This repository uses git submodules to reference shared code:
-
-| Submodule | Description |
-|-----------|-------------|
-| `lib/ecp-lib` | Core ECP library |
-| `lib/terragrunt-common` | Common Terragrunt configurations |
-| `lib/ecp-automation` | Automation scripts and pipelines |
-
-### Initializing Submodules
-
-```bash
-git submodule update --init --recursive
-```
-
 ## Getting Started
 
 1. Clone this repository with submodules:
@@ -114,7 +87,3 @@ git submodule update --init --recursive
    ```bash
    terragrunt run-all plan
    ```
-
-## License
-
-See [LICENSE](LICENSE) for details.
