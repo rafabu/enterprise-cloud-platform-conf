@@ -70,20 +70,3 @@ root.hcl          → Engagement-wide settings (tenant ID, deployment code, loca
           └── area.hcl    → Area-specific settings (functional grouping)
               └── terragrunt.hcl  → Unit-specific configuration
 ```
-
-## Getting Started
-
-1. Clone this repository with submodules:
-   ```bash
-   git clone --recurse-submodules <repository-url>
-   ```
-
-2. Navigate to your engagement and environment:
-   ```bash
-   cd deployments/managed/<engagement>/<environment>
-   ```
-
-3. Run Terragrunt commands as needed:
-   ```bash
-   terragrunt run-all plan
-   ```
