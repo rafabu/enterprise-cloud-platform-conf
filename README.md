@@ -1,6 +1,6 @@
 # Enterprise Cloud Platform - Configuration Repository
 
-This repository stores the **configuration** for the Enterprise Cloud Platform (ECP). ECP is an agnostic framework designed to deploy Enterprise Platforms at scale across cloud environments.
+This repository stores the **configuration** for the Enterprise Cloud Platform (ECP). ECP is an agnostic framework designed to deploy Enterprise Platforms at scale across cloud environments and datacenters.
 
 > **Note:** This repository only contains configuration files. The actual Terragrunt and Terraform code is maintained in separate repositories referenced as git submodules.
 
