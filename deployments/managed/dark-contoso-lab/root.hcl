@@ -1,5 +1,3 @@
-
-
 locals {
 
   ecp_entra_tenant_id = "cb5d5a54-23f2-447e-8850-d43b278d1d15"
