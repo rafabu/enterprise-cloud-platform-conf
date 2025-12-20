@@ -17,9 +17,9 @@ The Enterprise Cloud Platform enables organizations to:
 
 ```
 .
-├── deployments/                    # All deployment configurations
+├── deployments/                    # Deployment configurations
 │   └── managed/                    # Managed deployments
-│       └── <engagement>/           # Engagement (organization/customer)
+│       └── <engagement>/           # Engagement (Organization / Customer)
 │           └── <environment>/      # Environment (dev, prod, etc.)
 │               ├── env.hcl         # Environment-level configuration
 │               ├── level0/         # Deployment Level 0 (Launchpad)
@@ -34,9 +34,9 @@ The Enterprise Cloud Platform enables organizations to:
 │                   ├── entraid/
 │                   └── management/
 ├── lib/                            # Shared libraries (git submodules)
-│   ├── ecp-lib/                    # ECP core library
-│   ├── ecp-automation/             # Automation scripts and pipelines
-│   └── terragrunt-common/          # Common Terragrunt configurations
+│   ├── ecp-lib/                    # ECP Library
+│   ├── ecp-automation/             # ECP Automation
+│   └── terragrunt-common/          # ECP Terragrunt Common
 └── README.md
 ```
 
@@ -44,11 +44,11 @@ The Enterprise Cloud Platform enables organizations to:
 
 ### Engagements
 
-An **engagement** represents a distinct organization or customer deployment. Each engagement is a top-level folder under `deployments/managed/` (e.g., `rabu-m365-sandbox`). ECP is capable of deploying and managing multiple engagements from a single configuration repository.
+An **engagement** represents a distinct organization or customer deployment. Each engagement is a top-level folder under `deployments/managed/`. ECP is capable of deploying and managing multiple engagements from a single configuration repository.
 
 ### Environments
 
-Each engagement can have multiple **environments** such as `dev`, `staging`, or `prod`. Environments allow for separation of resources and configurations across different deployment stages.
+Each engagement can have multiple **environments** such as `dev`, `staging`, `test` or `prod`. Environments allow for separation of resources and configurations across different deployment stages.
 
 ### Deployment Levels
 
@@ -58,6 +58,7 @@ Deployments are organized into levels that represent different phases of the pla
 |-------|---------|------------|
 | **Level 0** | Launchpad & Bootstrap | Initial infrastructure setup, DevOps pipelines, backend storage, networking foundations |
 | **Level 1** | Core Platform | Platform subscriptions, Entra ID policies, management resources, Azure Landing Zone base |
+| **Level 2** | Network | Networking, Hub and Spoke architecture |
 
 ### Configuration Hierarchy
 
