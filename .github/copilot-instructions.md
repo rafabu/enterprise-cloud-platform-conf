@@ -30,6 +30,12 @@ Do not generate code in any other language (Python, Bash, JavaScript, etc.). All
 
 ---
 
+## Platform Requirements
+
+This framework is cross-platform compatible. Ubuntu 24.04 is the recommended environment for development, dev containers, and pipelines.
+
+---
+
 ## Repository Structure
 
 ```
