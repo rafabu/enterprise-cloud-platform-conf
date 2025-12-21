@@ -17,6 +17,19 @@ This repository (`enterprise-cloud-platform-conf`) hosts customer-specific confi
 
 ---
 
+## Allowed Tools and Languages
+
+**Only generate code using these tools/languages:**
+
+- **Terragrunt** - HCL configuration files (`.hcl`)
+- **Terraform** - HCL configuration files (`.tf`)
+- **PowerShell** - Automation scripts (`.ps1`)
+- **YAML** - Pipeline definitions (`.yaml`, `.yml`)
+
+Do not generate code in any other language (Python, Bash, JavaScript, etc.). All automation and scripting must use PowerShell.
+
+---
+
 ## Repository Structure
 
 ```
