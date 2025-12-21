@@ -14,7 +14,7 @@ If you encounter a new issue, please document it here following the existing for
 
 ### Description
 
-When running `apply` on level0 for the first time, Terraform may fail because required Azure resource providers are not yet registered on the subscription.
+When running `plan` on level0 for the first time, Terraform may fail because required Azure resource providers are not yet registered on the subscription.
 
 ### Error Example
 
@@ -97,7 +97,7 @@ Manually request a quota increase through the Azure Portal:
 2. Find the relevant VM family (e.g., `Microsoft.DevOpsInfrastructure` for the SKU family shown in the error)
 3. Request a quota increase through Microsoft Support
 
-**Option 2: Switch to an Available VM Family**
+**Option 2: Switch to an available VM Family**
 
 Override the VM SKU in your engagement's Terragrunt configuration to use a VM family that already has available quota.
 
@@ -130,7 +130,7 @@ managed_devops_pool_vmss_fabric_profile = {
 ```hcl
 inputs = {
   managed_devops_pool_vmss_fabric_profile = {
-    sku_name = "Standard_D2s_v5"  # Changed to Intel-based SKU
+    sku_name = "Standard_D2s_v6"  # Changed to Intel-based SKU
     image = [
       {
         aliases               = ["ubuntu-24.04/latest"]
