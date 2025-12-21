@@ -21,7 +21,7 @@
 		},
 		"ghcr.io/devcontainers/features/terraform:1": {
 			"version": "1.14.3", // Terraform version
-            "terragrunt": "v0.96.1",
+            "terragrunt": "0.96.1",
 			"tflint": "latest"
 		}
 	},
