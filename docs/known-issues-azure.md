@@ -120,11 +120,10 @@ managed_devops_pool_vmss_fabric_profile = {
 
 | SKU              | Family              | vCPUs | Notes                                  |
 |------------------|---------------------|-------|----------------------------------------|
-| Standard_D2s_v5  | standardDSv5Family  | 2     | Intel-based, often more available      |
-| Standard_D2ds_v5 | standardDDSv5Family | 2     | With local temp disk                   |
-| Standard_D2s_v4  | standardDSv4Family  | 2     | Previous generation, widely available  |
-| Standard_B2s     | standardBSFamily    | 2     | Burstable, cheaper                     |
-| Standard_B2as_v1 | standardBASv1Family | 2     | Burstable AMD, cost-effective          |
+| Standard_D2s_v6  | standardDSv6Family  | 2     | Intel-based, often more available      |
+| Standard_D2ds_v6 | standardDDSv6Family | 2     | With local temp disk                   |
+| Standard_B2s_v2     | standardBSv2Family    | 2     | Burstable, cheaper                     |
+| Standard_B2as_v2 | standardBASv2Family | 2     | Burstable AMD, cost-effective          |
 
 **Example override:**
 
