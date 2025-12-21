@@ -46,7 +46,7 @@ enterprise-cloud-platform-conf/
 │   └── ecp-automation/               # Pipeline, automation and workflow templates
 └── deployments/
     └── managed/
-        └── {customer-name}/          # Customer deployment folder
+        └── {customer-name}/          # Engagement, Customer deployment folder
             ├── root.hcl              # Tenant ID, deployment code, location, tags
             └── {env}/                # Environment (dev, prod)
                 ├── env.hcl           # Subscription IDs, ADO org, network space
