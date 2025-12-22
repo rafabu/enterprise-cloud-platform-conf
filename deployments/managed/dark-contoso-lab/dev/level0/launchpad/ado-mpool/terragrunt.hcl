@@ -45,23 +45,4 @@ locals {
 inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
-
-  # Overwrite to use a different VM family for deployment
-  managed_devops_pool_vmss_fabric_profile = {
-      sku_name = "Standard_D2as_v5"
-      image = [
-        {
-          aliases               = ["ubuntu-24.04/latest"]
-          buffer                = "*"
-          well_known_image_name = "ubuntu-24.04/latest"
-        }
-      ]
-      os_profile = {
-        logon_type = "Service"
-      }
-      storage_profile = {
-        os_disk_storage_account_type = "StandardSSD"
-        data_disk                    = []
-      }
-    }
 }
