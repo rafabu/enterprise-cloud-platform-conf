@@ -48,7 +48,7 @@ New Azure subscriptions do not have all resource providers registered by default
 
 ### Workaround
 
-Run `terragrunt apply` again. The Enterprise Cloud Platform is designed to register the required resource providers automatically during deployment. The initial apply may fail, but subsequent runs will succeed once the providers are registered.
+Run `terragrunt apply` first. The Enterprise Cloud Platform is designed to register the required resource providers automatically during deployment. The initial apply may fail, but subsequent runs will succeed once the providers are registered.
 
 ---
 
