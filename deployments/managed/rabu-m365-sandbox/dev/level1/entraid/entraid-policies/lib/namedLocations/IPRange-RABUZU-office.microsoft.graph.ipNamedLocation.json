@@ -1,0 +1,10 @@
+{
+    "artefactName": "IP-rabuzu-office",
+    "displayName": "IPs: rabuzu (Test Office Locations)",
+    "isTrusted": true,
+    "ipRanges": [
+        {
+            "cidrAddress": "98.84.201.91/32"
+        }
+    ]
+}
