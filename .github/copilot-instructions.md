@@ -6,7 +6,8 @@ Enterprise Cloud Platform (ECP) is an infrastructure-as-code framework for deplo
 
 ## About This Repository
 
-This repository (`enterprise-cloud-platform-conf`) hosts customer-specific configuration for each engagement (organization) and environment. It contains **only configuration data** - actual infrastructure code is pulled from related repositories:
+This repository (`enterprise-cloud-platform-conf`) hosts customer-specific configuration for each engagement (organization) and environment. The Terragrunt configuration in this repo needs to be as DRY as possible. Extended Terragrunt config must happen in the unit-common.hcl files in the enterprise-cloud-platform-tgcommon repository.
+It contains **only configuration data** - actual infrastructure code is pulled from related repositories:
 
 | Repository | Purpose | URL |
 |------------|---------|-----|
