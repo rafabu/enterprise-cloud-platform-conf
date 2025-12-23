@@ -43,5 +43,12 @@ locals {
 inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
+
+  ecp_deployment_entraid_contributor_group_member_principal_ids = [
+    "7d341c29-3220-4f0c-b154-b08bde0ee92e" # A-Admin
+  ]
+  ecp_deployment_entraid_reader_group_member_principal_ids      = [
+    "05b1d8bc-7b58-4695-9a5e-98029da27119" # C-Admin
+  ]
 }
 

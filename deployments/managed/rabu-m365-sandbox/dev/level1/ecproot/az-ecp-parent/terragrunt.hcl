@@ -41,6 +41,15 @@ locals {
 }
 
 inputs = {
+
+  ecp_deployment_entraid_contributor_group_member_principal_ids = [
+    "111d8248-5407-4cc2-8482-67f182b8cd78" # Adele Vance / AdeleV@m365.rabuzu.com
+  ]
+  ecp_deployment_entraid_reader_group_member_principal_ids      = [
+    "111d8248-5407-4cc2-8482-67f182b8cd78", # Adele Vance / AdeleV@m365.rabuzu.com
+    "5c929fb8-b2eb-46de-99e3-c7a63127358a" # Alex Wilber / AlexW@m365.rabuzu.com
+  ]
+
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
 }
