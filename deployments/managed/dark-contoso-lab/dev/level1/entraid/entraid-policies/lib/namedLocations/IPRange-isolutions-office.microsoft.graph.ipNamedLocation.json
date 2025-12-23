@@ -1,10 +1,10 @@
 {
-    "artefactName": "IP-isolutions-office",
-    "displayName": "IPs: isolutions AG (Office Locations)",
+    "artefactName": "dark-contoso-corp-hp",
+    "displayName": "IPs: Dark Contoso Corp (Headquarters)",
     "isTrusted": true,
     "ipRanges": [
         {
-            "cidrAddress": "212.98.37.52/32"
+            "cidrAddress": "98.84.201.91/32"
         }
     ]
 }
