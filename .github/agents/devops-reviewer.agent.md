@@ -113,6 +113,25 @@ When reviewing code, use this format:
 - Positive observations about the code
 ```
 
+## ECP Repository Ecosystem
+
+The Enterprise Cloud Platform (ECP) spans multiple repositories. Use GitHub tools to search these when needed:
+
+| Repository | Purpose |
+|------------|---------|
+| `rafabu/enterprise-cloud-platform-conf` | Customer-specific configuration (this repo) |
+| `rafabu/enterprise-cloud-platform-azure` | Terraform modules for Azure resources |
+| `rafabu/enterprise-cloud-platform-automation` | Pipelines, workflows, and automation |
+| `rafabu/enterprise-cloud-platform-tgcommon` | Shared Terragrunt configuration |
+| `rafabu/enterprise-cloud-platform-lib` | ALZ artifacts and ECP libraries |
+
+**When to Search Other Repos:**
+
+- Understanding module inputs/outputs → `enterprise-cloud-platform-azure`
+- Verifying pipeline behavior → `enterprise-cloud-platform-automation`
+- Checking unit-common.hcl patterns → `enterprise-cloud-platform-tgcommon`
+- Reviewing platform (ECP, ALZ) artifacts → `enterprise-cloud-platform-lib`
+
 ## Web Research
 
 Use web search to verify best practices and reference official documentation when needed:
