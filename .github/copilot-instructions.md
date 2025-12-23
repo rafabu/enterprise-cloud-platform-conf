@@ -97,8 +97,9 @@ cd deployments/managed/{customer}/dev/level0/launchpad/az-launchpad-main
 terragrunt validate
 ```
 
-**Run a plan** (requires authentication and permissions):
+**Run a plan (e.g., level0)** (requires authentication and permissions):
 ```bash
+cd ./deployments/managed/{customer}/dev/
 terragrunt plan --terragrunt-working-dir deployments/managed/{customer}/dev/level0/
 ```
 
@@ -143,13 +144,6 @@ terragrunt plan --terragrunt-working-dir deployments/managed/{customer}/dev/leve
 ---
 
 ## Critical Patterns to Follow
-
-### Creating New Customer Deployment
-
-1. Copy an existing customer folder (e.g., `rabu-m365-sandbox`)
-2. Update `root.hcl`: `ecp_entra_tenant_id`, `ecp_deployment_code`, `ecp_deployment_number`, `ecp_azure_main_location`, tags
-3. Update `env.hcl`: subscription IDs, `ecp_azure_devops_organization_name`, `ecp_network_main_ipv4_address_space`
-4. All `terragrunt.hcl` files reference the same submodule paths - no changes needed
 
 ### Naming Convention
 
