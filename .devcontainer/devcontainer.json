@@ -1,0 +1,76 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:noble",
+
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {
+			"version": "latest",
+			"bicepVersion": "latest"
+		},
+		"ghcr.io/devcontainers/features/copilot-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"installDirectlyFromGitHubRelease": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/powershell:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/terraform:1": {
+			"version": "1.14.3",
+			"terragrunt": "0.96.1",
+			"tflint": "none"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Anthropic.claude-code",
+				"hashicorp.hcl",
+				"hashicorp.terraform",
+				"ms-azuretools.vscode-azureterraform",
+				"ms-azuretools.vscode-azure-github-copilot",
+				"ms-azuretools.vscode-azureresourcegroups",
+				"ms-azuretools.vscode-azure-mcp-server",
+				"ms-vscode.PowerShell"
+			]
+		}
+	},
+
+	// Podman compatibility: preserves host user ID in container (Docker ignores this)
+	"runArgs": ["--userns=keep-id"],
+
+	// Run as non-root user to prevent permission errors
+	"containerUser": "vscode",
+
+	// Sync container user UID with host user
+	"updateRemoteUserUID": true,
+
+	// Explicit workspace mount with SELinux relabeling flag (,Z) for Podman
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,Z",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+	// Explicit HOME prevents VS Code from using /root in rootless Podman
+	"containerEnv": {
+		"HOME": "/home/vscode"
+	}
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
