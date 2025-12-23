@@ -4,6 +4,7 @@
 	"name": "Ubuntu",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/base:noble",
+
 	"features": {
 		"ghcr.io/devcontainers/features/azure-cli:1": {
 			"version": "latest",
@@ -20,9 +21,9 @@
 			"version": "latest"
 		},
 		"ghcr.io/devcontainers/features/terraform:1": {
-			"version": "1.14.3", // Terraform version
-            "terragrunt": "0.96.1",
-			"tflint": "latest"
+			"version": "1.14.3",
+			"terragrunt": "0.96.1",
+			"tflint": "none"
 		}
 	},
 	"customizations": {
@@ -38,6 +39,24 @@
 				"ms-vscode.PowerShell"
 			]
 		}
+	},
+
+	// Podman compatibility: preserves host user ID in container (Docker ignores this)
+	"runArgs": ["--userns=keep-id"],
+
+	// Run as non-root user to prevent permission errors
+	"containerUser": "vscode",
+
+	// Sync container user UID with host user
+	"updateRemoteUserUID": true,
+
+	// Explicit workspace mount with SELinux relabeling flag (,Z) for Podman
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,Z",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+	// Explicit HOME prevents VS Code from using /root in rootless Podman
+	"containerEnv": {
+		"HOME": "/home/vscode"
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
