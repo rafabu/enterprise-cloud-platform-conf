@@ -20,25 +20,43 @@ The Enterprise Cloud Platform enables organizations to:
 ├── deployments/                    # Deployment configurations
 │   └── managed/                    # Managed deployments
 │       └── <engagement>/           # Engagement (Organization / Customer)
+│           ├── root.hcl            # Engagement-level configuration
 │           └── <environment>/      # Environment (dev, prod, etc.)
 │               ├── env.hcl         # Environment-level configuration
 │               ├── level0/         # Deployment Level 0 (Launchpad)
 │               │   ├── level.hcl
-│               │   ├── bootstrap/
-│               │   ├── launchpad/
-│               │   ├── automation/
-│               │   └── finalizer/
+│               │   ├── bootstrap/              # Area
+│               │   │   ├── area.hcl
+│               │   │   └── az-launchpad-bootstrap-helper/
+│               │   │       └── terragrunt.hcl  # Terragrunt unit
+│               │   ├── launchpad/              # Area
+│               │   │   ├── area.hcl
+│               │   │   ├── az-launchpad-main/
+│               │   │   │   └── terragrunt.hcl  # Terragrunt unit
+│               │   │   └── .../
+│               │   ├── automation/             # Area
+│               │   │   ├── area.hcl
+│               │   │   ├── ado-pipeline/
+│               │   │   │   └── terragrunt.hcl  # Terragrunt unit
+│               │   │   └── .../
+│               │   └── finalizer/              # Area
+│               │       └── area.hcl
 │               └── level1/         # Deployment Level 1 (Core Platform)
 │                   ├── level.hcl
-│                   ├── ecproot/
-│                   ├── entraid/
-│                   └── management/
+│                   ├── ecproot/                # Area
+│                   │   └── area.hcl
+│                   ├── entraid/                # Area
+│                   │   └── area.hcl
+│                   └── management/             # Area
+│                       └── area.hcl
 ├── lib/                            # Shared libraries (git submodules)
 │   ├── ecp-lib/                    # ECP Library
 │   ├── ecp-automation/             # ECP Automation
 │   └── terragrunt-common/          # ECP Terragrunt Common
 └── README.md
 ```
+
+> **Note:** An **area** groups related Terragrunt units by function (e.g., `automation/`). A **Terragrunt unit** is the smallest deployable component - a folder containing a `terragrunt.hcl` configuration file (e.g., `automation/ado-pipeline/`).
 
 ## Key Concepts
 
