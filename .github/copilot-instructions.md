@@ -23,7 +23,8 @@ This repository (`enterprise-cloud-platform-conf`) hosts customer-specific confi
 
 - **Terragrunt** - HCL configuration files (`.hcl`)
 - **Terraform** - HCL configuration files (`.tf`)
-- **PowerShell** - Automation scripts (`.ps1`)
+- **PowerShell (pwsh)** - Automation scripts (`.ps1`) / PowerShell version <= 7.0 to ensure cross-platform compatibility
+- **Bash** - Automation scripts (`.sh`) for cross-platform shell scripting
 - **YAML** - Pipeline definitions (`.yaml`, `.yml`)
 
 Do not generate code in any other language (Python, Bash, JavaScript, etc.). All automation and scripting must use PowerShell.
