@@ -1,0 +1,10 @@
+{
+    "artefactName": "dark-contoso-corp-hp",
+    "displayName": "IPs: Dark Contoso Corp (Headquarters)",
+    "isTrusted": true,
+    "ipRanges": [
+        {
+            "cidrAddress": "98.84.201.91/32"
+        }
+    ]
+}
