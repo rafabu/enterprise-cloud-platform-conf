@@ -44,5 +44,13 @@ locals {
 inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
+
+  # Azure vWAN Settings that could be overridden
+  # virtual_wan_hubs = {
+  #   "ecpa-default-location" = {
+  #     # Basic (default) / Standard
+  #     sku = "Basic or Standard"
+  #   }
+  # }
 }
 
