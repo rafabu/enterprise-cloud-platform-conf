@@ -49,7 +49,7 @@ inputs = {
   # virtual_wan_hubs = {
   #   "ecpa-default-location" = {
   #     # Basic (default) / Standard
-  #     sku = "Basic or Standard"
+  #     sku = "Standard"
   #   }
   # }
 }
