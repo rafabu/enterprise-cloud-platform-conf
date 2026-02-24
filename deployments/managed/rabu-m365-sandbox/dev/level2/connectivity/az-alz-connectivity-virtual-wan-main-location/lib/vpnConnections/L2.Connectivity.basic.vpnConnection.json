@@ -6,7 +6,7 @@
     "__vpnGateway": {
         "id": "<ECP_ARTEFACT>:l2-connectivity-basic-example-vpnGateway"
     },
-    
+
     "remoteVpnSite": {
         "id": "<ECP_ARTEFACT>:l2-connectivity-example-staticrouting-vpnsite"
     },
@@ -36,7 +36,14 @@
                 "dpdTimeoutSeconds": 0,
                 "vpnLinkConnectionMode": "Default",
                 "vpnGatewayCustomBgpAddresses": [],
-                "sharedKey ": "A1b2C3d4"
+                
+                "preSharedKey": {
+                    "value": "",
+                    "valueRandom": true,
+                    "valueRandomVersion": 0,
+                    "valueKeyVaultRetrievable": true,
+                    "valueKeyVaultRead": false
+                }
             }
         }
     ]

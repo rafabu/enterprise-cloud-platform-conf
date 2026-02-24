@@ -45,57 +45,11 @@ inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
 
-  # Azure vWAN Settings that could be overridden
-  # virtual_wan_hubs = {
-  #   "ecpa-default-location" = {
-  #     # Basic (default) / Standard
-  #     sku = "Standard"
-  #   }
-  # }
-
-
- ecp_archetype_definitions = {
-    name = "ecp-vwan"
-    virtual_wan = [
-      "l2-connectivity-vwan-basic-sku"
-    ]
-    virtual_hub = [
-      "l2-connectivity-default-vwan-hub"
-    ]
-    vpn_gateway    = []
-    vpn_site       = [
-    # "l2-connectivity-example-staticrouting-vpnsite"
-    ]
-    vpn_connection = [
-    # "l2-connectivity-example-vpnConnection"
-    ]
-    er_gateway     = []
-    er_connection  = []
-  }
-
-  azure_location = "westeurope"
-  # ecp_network_main_ipv4_address_space = ""
-
-  ecp_hub_locations = {
-    # "ecpa-default-location" = {
-    #   azure_location = "westeurope"
-    #   ecp_network_main_ipv4_address_space = "10.1.0.0/16"
-    #   is_main_location = true
-    # }
-    "ireland" = {
-      azure_location = "northeurope"
-      ecp_network_main_ipv4_address_space = "10.2.0.0/16"
-      is_main_location = false
-    }
-    "frankfurt" = {
-      azure_location = "germanywestcentral"
-      ecp_network_main_ipv4_address_space = "10.3.0.0/16"
-      is_main_location = false
-    }
-    "gaevle" = {
-      azure_location = "swedencentral"
-      ecp_network_main_ipv4_address_space = "10.5.0.0/16"
-      }
-  }
+#  ecp_archetype_definitions = {
+#     name = "ecp-con"
+#     virtual_network = "l2-connectivity-vwan-basic-sku"
+#     virtual_network_subnet = [
+#       "l2-connectivity-default-vwan-hub"
+#     ]
+#   }
 }
-
