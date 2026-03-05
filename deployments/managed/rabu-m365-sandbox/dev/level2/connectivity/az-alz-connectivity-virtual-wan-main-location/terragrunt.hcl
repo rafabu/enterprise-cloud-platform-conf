@@ -29,8 +29,8 @@ include "area" {
 }
 # unit common (via git submodule)
 include "unit-common" {
-  path = format("%s/lib/terragrunt-common/ecp-v1/%s/unit-common.hcl", get_repo_root(), regexall("^.*/(.+?/.+?/.+?)$", get_terragrunt_dir())[0][0])
-  
+  path = format("%s/lib/terragrunt-common/ecp-v1/%s/unit-common.hcl", get_repo_root(), regexall("^.*(?:\\\\|/)(.+?(?:\\\\|/).+?(?:\\\\|/).+?)$", get_terragrunt_dir())[0][0])
+
   expose         = false
   merge_strategy = "deep"
 }
@@ -54,7 +54,7 @@ inputs = {
   # }
 
 
- ecp_archetype_definitions = {
+  ecp_archetype_definitions = {
     name = "ecp-vwan"
     virtual_wan = [
       "l2-connectivity-vwan-basic-sku"
@@ -62,15 +62,15 @@ inputs = {
     virtual_hub = [
       "l2-connectivity-default-vwan-hub"
     ]
-    vpn_gateway    = []
-    vpn_site       = [
-    # "l2-connectivity-example-staticrouting-vpnsite"
+    vpn_gateway = []
+    vpn_site = [
+      # "l2-connectivity-example-staticrouting-vpnsite"
     ]
     vpn_connection = [
-    # "l2-connectivity-example-vpnConnection"
+      # "l2-connectivity-example-vpnConnection"
     ]
-    er_gateway     = []
-    er_connection  = []
+    er_gateway    = []
+    er_connection = []
   }
 
   azure_location = "westeurope"
@@ -83,19 +83,20 @@ inputs = {
     #   is_main_location = true
     # }
     "ireland" = {
-      azure_location = "northeurope"
+      azure_location                      = "northeurope"
       ecp_network_main_ipv4_address_space = "10.2.0.0/16"
-      is_main_location = false
+      is_main_location                    = false
     }
     "frankfurt" = {
-      azure_location = "germanywestcentral"
+      azure_location                      = "germanywestcentral"
       ecp_network_main_ipv4_address_space = "10.3.0.0/16"
-      is_main_location = false
+      is_main_location                    = false
     }
     "gaevle" = {
-      azure_location = "swedencentral"
+      azure_location                      = "swedencentral"
       ecp_network_main_ipv4_address_space = "10.5.0.0/16"
-      }
+      is_main_location                    = false
+    }
   }
 }
 
