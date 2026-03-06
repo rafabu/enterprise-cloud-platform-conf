@@ -1,1 +1,1 @@
-# Microsoft.Network/vpnGateways/vpnConnections
+# Microsoft.Network/vpnSites
