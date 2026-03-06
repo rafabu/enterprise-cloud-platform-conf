@@ -180,7 +180,7 @@ Providers in `root-common.hcl` are conditionally included based on deployment un
 2. **Provider version mismatch**: Check `root-common.hcl` for version constraints
 3. **Backend state issues**: Bootstrap helper creates backend storage; runs with local state initially
 4. **Missing parent management group**: `az-ecp-parent` must run before `az-alz-base`
-5. **Path extraction regex**: Unit path extracted via `regexall("^.*/(.+?/.+?/.+?)$", get_terragrunt_dir())[0][0]`
+5. **Path extraction regex**: Unit path extracted via `regexall("^.*(?:\\\\|/)(.+?(?:\\\\|/).+?(?:\\\\|/).+?)$", get_terragrunt_dir())[0][0]`
 
 ---
 
