@@ -55,7 +55,9 @@ inputs = {
 
 
   ecp_archetype_definitions = {
-    name = "ecp-vwan"
+
+    # name = "ecp-vwan"
+    
     virtual_wan = [
       "l2-connectivity-vwan-basic-sku"
     ]
@@ -73,9 +75,9 @@ inputs = {
     er_connection = []
   }
 
-  azure_location = "westeurope"
-  # ecp_network_main_ipv4_address_space = ""
+  # azure_location = "westeurope"
 
+  # allows specifying additional vWAN hub locations
   ecp_hub_locations = {
     # "ecpa-default-location" = {
     #   azure_location = "westeurope"
