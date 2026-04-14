@@ -73,28 +73,29 @@ inputs = {
     er_connection = []
   }
 
+  # OPTIONAL - additional VWAN Hubs
   # allows specifying additional vWAN hub locations
-  ecp_hub_locations = {
-    "netherlands" = {
-      azure_location                      = "westeurope"
-      ecp_network_main_ipv4_address_space = "10.1.0.0/16"
-      is_main_location                    = false
-    }
-    "ireland" = {
-      azure_location                      = "northeurope"
-      ecp_network_main_ipv4_address_space = "10.2.0.0/16"
-      is_main_location                    = false
-    }
-    "frankfurt" = {
-      azure_location                      = "germanywestcentral"
-      ecp_network_main_ipv4_address_space = "10.3.0.0/16"
-      is_main_location                    = false
-    }
-    "gaevle" = {
-      azure_location                      = "swedencentral"
-      ecp_network_main_ipv4_address_space = "10.5.0.0/16"
-      is_main_location                    = false
-    }
-  }
+  # ecp_hub_locations = {
+  #   "netherlands" = {
+  #     azure_location                      = "westeurope"
+  #     ecp_network_main_ipv4_address_space = "10.1.0.0/16"
+  #     is_main_location                    = false
+  #   }
+  #   "ireland" = {
+  #     azure_location                      = "northeurope"
+  #     ecp_network_main_ipv4_address_space = "10.2.0.0/16"
+  #     is_main_location                    = false
+  #   }
+  #   "frankfurt" = {
+  #     azure_location                      = "germanywestcentral"
+  #     ecp_network_main_ipv4_address_space = "10.3.0.0/16"
+  #     is_main_location                    = false
+  #   }
+  #   "gaevle" = {
+  #     azure_location                      = "swedencentral"
+  #     ecp_network_main_ipv4_address_space = "10.5.0.0/16"
+  #     is_main_location                    = false
+  #   }
+  # }
 }
 

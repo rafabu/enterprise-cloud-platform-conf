@@ -36,11 +36,8 @@ include "unit-common" {
 }
 
 locals {
-  ecp_deployment_area = "ecpacon" # private DNS zones are part of connectivity
-
   module_azure_tags = {
     # "hidden-ecpTgUnit" = format("%s/terragrunt.hcl", get_terragrunt_dir())
-    workloadDescription = local.ecp_deployment_area
   }
 }
 
