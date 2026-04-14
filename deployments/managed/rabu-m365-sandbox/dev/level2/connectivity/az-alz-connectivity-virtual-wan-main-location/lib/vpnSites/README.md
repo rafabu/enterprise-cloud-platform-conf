@@ -1,1 +1,0 @@
-# Microsoft.Network/vpnSites
