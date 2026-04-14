@@ -89,3 +89,9 @@ root.hcl          → Engagement-wide settings (tenant ID, deployment code, loca
           └── area.hcl    → Area-specific settings (functional grouping)
               └── terragrunt.hcl  → Unit-specific configuration
 ```
+
+## Most current release
+
+v0.4.0 - 14.04.2026
+
+When applying assure that all ECP repos are aligned on the same release tag (normal operation). Everything else is highly experimental.
