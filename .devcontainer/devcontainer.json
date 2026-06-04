@@ -21,8 +21,8 @@
 			"version": "latest"
 		},
 		"ghcr.io/devcontainers/features/terraform:1": {
-			"version": "1.14.3",
-			"terragrunt": "0.96.1",
+			"version": "latest",
+			"terragrunt": "latest",
 			"tflint": "none"
 		}
 	},
