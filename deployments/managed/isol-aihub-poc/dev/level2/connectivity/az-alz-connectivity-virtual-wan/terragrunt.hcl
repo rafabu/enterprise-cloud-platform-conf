@@ -46,22 +46,18 @@ inputs = {
   azure_tags = local.module_azure_tags
 
   ecp_archetype_definitions = {
-
+    # Standard SKU: Enable spoke-to-spoke connectivity
     virtual_wan = [
-      "l2-connectivity-vwan-basic-sku"
+      "l2-connectivity-vwan-standard-sku"
     ]
     virtual_hub = [
       "l2-connectivity-default-vwan-hub"
     ]
-    vpn_gateway = []
-    vpn_site = [
-      # "l2-connectivity-example-staticrouting-vpnsite"
-    ]
-    vpn_connection = [
-      # "l2-connectivity-example-vpnConnection"
-    ]
-    er_gateway    = []
-    er_connection = []
+    vpn_gateway    = []
+    vpn_site       = []
+    vpn_connection = []
+    er_gateway     = []
+    er_connection  = []
   }
 }
 

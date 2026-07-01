@@ -57,7 +57,7 @@ inputs = {
   ecp_archetype_definitions = {
     virtual_network = "l2-connectivity-vnet-hub"
     virtual_network_subnet = [
-     
+
     ]
     vpn_gateway = []
     vpn_site = [
