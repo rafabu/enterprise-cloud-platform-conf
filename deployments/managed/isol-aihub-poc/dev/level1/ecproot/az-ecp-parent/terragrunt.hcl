@@ -43,11 +43,16 @@ locals {
 inputs = {
 
   ecp_deployment_entraid_contributor_group_member_principal_ids = [
-    "111d8248-5407-4cc2-8482-67f182b8cd78" # Adele Vance / AdeleV@m365.rabuzu.com
+    "86984e3c-69ef-4cf0-9c37-3c5e940408cd" # Raphael Burri (guest user)
+    "c17ad8e5-871f-4d00-a6c1-c4b7841dd573" # Lukas Rottach (guest user)
+    "678326f7-78a8-4916-83e8-5671ef662b94" # Cédric Mendelin (guest user)
+    "27adb7f0-20f5-47aa-b0a6-7f8996b0058f" # Sebastian Ebner (guest users)
   ]
   ecp_deployment_entraid_reader_group_member_principal_ids = [
-    "111d8248-5407-4cc2-8482-67f182b8cd78", # Adele Vance / AdeleV@m365.rabuzu.com
-    "5c929fb8-b2eb-46de-99e3-c7a63127358a"  # Alex Wilber / AlexW@m365.rabuzu.com
+    "86984e3c-69ef-4cf0-9c37-3c5e940408cd", # Raphael Burri (guest user)
+    "c17ad8e5-871f-4d00-a6c1-c4b7841dd573"  # Lukas Rottach (guest user)
+    "678326f7-78a8-4916-83e8-5671ef662b94"  # Cédric Mendelin (guest user)
+    "27adb7f0-20f5-47aa-b0a6-7f8996b0058f"  # Sebastian Ebner (guest users)
   ]
 
   # unit inputs mostly from unit-common.hcl
