@@ -74,23 +74,23 @@ inputs = {
 
 
   // workload owner and user configuration
-  workload_owner_object_ids = [
+  workload_owners_group_member_object_ids = [
     "86984e3c-69ef-4cf0-9c37-3c5e940408cd", # Raphael Burri (guest user)
     "c17ad8e5-871f-4d00-a6c1-c4b7841dd573", # Lukas Rottach (guest user)
     "678326f7-78a8-4916-83e8-5671ef662b94", # Cédric Mendelin (guest user)
     "27adb7f0-20f5-47aa-b0a6-7f8996b0058f", # Sebastian Ebner (guest users)
     "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
   ]
-  workload_owners_use_pim = true
+  workload_owners_group_use_pim = true
 
-  workload_user_object_ids = [
+  workload_users_group_member_object_ids = [
     "86984e3c-69ef-4cf0-9c37-3c5e940408cd", # Raphael Burri (guest user)
     "c17ad8e5-871f-4d00-a6c1-c4b7841dd573", # Lukas Rottach (guest user)
     "678326f7-78a8-4916-83e8-5671ef662b94", # Cédric Mendelin (guest user)
     "27adb7f0-20f5-47aa-b0a6-7f8996b0058f", # Sebastian Ebner (guest users)
     "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
   ]
-  workload_users_use_pim = false
+  workload_users_group_use_pim = false
 
   # use this to override the default location if required
   azure_location = "SwedenCentral"
