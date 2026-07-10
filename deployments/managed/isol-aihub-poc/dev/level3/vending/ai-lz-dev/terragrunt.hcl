@@ -81,7 +81,7 @@ inputs = {
     "27adb7f0-20f5-47aa-b0a6-7f8996b0058f", # Sebastian Ebner (guest users)
     "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
   ]
-  workload_owners_use_pim = false
+  workload_owners_use_pim = true
 
   workload_user_object_ids = [
     "86984e3c-69ef-4cf0-9c37-3c5e940408cd", # Raphael Burri (guest user)
