@@ -86,6 +86,7 @@ inputs = {
   ]
 
   workload_owners_group_owners_object_ids = [
+    "ca4809a9-71f5-49e8-aa1c-0b2de8c4f375", # Global Admin (fallback owner)
     "678326f7-78a8-4916-83e8-5671ef662b94", # Cédric Mendelin (guest user)
     "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
   ]
@@ -100,7 +101,7 @@ inputs = {
     "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
   ]
     workload_users_group_owners_object_ids = [
-   
+    "ca4809a9-71f5-49e8-aa1c-0b2de8c4f375", # Global Admin (fallback owner)
     "678326f7-78a8-4916-83e8-5671ef662b94", # Cédric Mendelin (guest user)
     "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
   ]
