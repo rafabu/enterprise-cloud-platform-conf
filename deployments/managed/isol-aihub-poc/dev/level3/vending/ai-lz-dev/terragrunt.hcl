@@ -171,7 +171,7 @@ inputs = {
   // Azure Virtual WAN connect
   vwan_connect_enabled = true
   # if location ins't given, uses either a hub in the same or the default (main) location
-  vwan_hub_location = "SwitzerlandNorth"
+  # vwan_hub_location = "SwitzerlandNorth"
   
   // Azure Bastion connect
   bastion_connect_enabled = true
