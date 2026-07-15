@@ -45,4 +45,9 @@ inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
 
+  # defaults to "Standard" SKU
+  azure_bastion_configuration = {
+    sku = "Basic"
+  }
+
 }

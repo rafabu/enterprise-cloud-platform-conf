@@ -170,13 +170,12 @@ inputs = {
 
   // Azure Virtual WAN connect
   vwan_connect_enabled = true
-  vwan_hub_resource_id = "/subscriptions/54a47b01-be16-4ac5-9c2c-a9847076d794/resourceGroups/iaih-d9-rg-ecpa-con-wan-szn/providers/Microsoft.Network/virtualHubs/iaih-d9-vhub-ecpa-con-szn-01"
-
+  # if location ins't given, uses either a hub in the same or the default (main) location
+  vwan_hub_location = "SwitzerlandNorth"
+  
   // Azure Bastion connect
-  bastion_connect_enabled = false
-  bastion_vnet_id = "/subscriptions/1a89ff70-00fa-4e2b-ada3-a06776c44465/resourceGroups/iaih-d9-rg-ecpa-lz-dev-vnet/providers/Microsoft.Network/virtualNetworks/iaih-d9-vnet-ecpa-lz-dev-01"
-  bastion_resource_id = "/subscriptions/54a47b01-be16-4ac5-9c2c-a9847076d794/resourceGroups/iaih-d9-rg-ecpa-con-wan-szn/providers/Microsoft.Network/bastionHosts/iaih-d9-bastion-ecpa-con-szn-01"
-
+  bastion_connect_enabled = true
+  
   //NAT Gateway
   nat_gateway_creation_enabled = true
   nat_gateway_public_ip_count = 1
