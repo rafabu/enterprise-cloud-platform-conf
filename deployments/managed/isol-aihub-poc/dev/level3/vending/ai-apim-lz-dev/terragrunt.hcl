@@ -1,0 +1,179 @@
+# includes merge "inputs", with last include taking precedence over previously defined.
+#     expose: allows content (e.g. locals) to be used by "include" 
+
+# root common (via git submodule)
+include "root-common" {
+  path           = format("%s/lib/terragrunt-common/ecp-v1/root-common.hcl", get_repo_root())
+  expose         = false
+  merge_strategy = "deep"
+}
+include "root" {
+  path           = find_in_parent_folders("root.hcl")
+  expose         = false
+  merge_strategy = "deep"
+}
+include "env" {
+  path           = find_in_parent_folders("env.hcl")
+  expose         = false
+  merge_strategy = "deep"
+}
+include "level" {
+  path           = find_in_parent_folders("level.hcl")
+  expose         = false
+  merge_strategy = "deep"
+}
+include "area" {
+  path           = find_in_parent_folders("area.hcl")
+  expose         = false
+  merge_strategy = "deep"
+}
+# unit common (via git submodule)
+include "unit-common" {
+  path = format("%s/lib/terragrunt-common/ecp-v1/%s/az-alz-vending-subscription/unit-common.hcl", get_repo_root(), regexall("^.*(?:\\\\|/)(.+?(?:\\\\|/).+?)(?:\\\\|/).+?$", get_terragrunt_dir())[0][0])
+
+  expose         = false
+  merge_strategy = "deep"
+}
+
+locals {
+
+ workload_identifier  = "aiapimlz"
+ workload_stage  = "dev"
+
+
+
+  module_azure_tags = {
+    # "hidden-ecpTgUnit" = format("%s/terragrunt.hcl", get_terragrunt_dir())
+  }
+}
+
+inputs = {
+  ########## SHOULD BE DEPENDENCY ##########57
+  ecp_parent_management_group_id = "/providers/Microsoft.Management/managementGroups/iaih-d9-mg-ecpa-deployment"
+  ecp_parent_management_group_name = "iaih-d9-mg-ecpa-deployment"
+  ecp_azure_devops_managed_devops_pool_name = "ECP-Platform-Pool-iaihd9"
+  ecp_azure_devops_project_name = "ECP"
+  ecp_azure_devops_repository_name = "ECP.Automation"
+
+  ecp_azure_deployment_service_principal_client_id = "d94c5781-ea21-4c2c-8216-cf49d75967e6"
+  ecp_azure_deployment_service_principal_object_id = "3ef54868-b6f3-493c-b695-9c968bd4b208"
+
+  # business_unit       = "????"
+  # cost_center         = "0000"
+  # data_classification = "internal"
+
+  
+  azure_resource_name_elements = {
+    prefixes      = []
+    name          = local.workload_identifier
+    suffixes      = [local.workload_stage]
+    random_length = try(local.merged_locals.ecp_resource_name_random_length, 0)
+  }
+
+  # workload_owner       = "cedric.mendelin@isolutions.ch"
+  # workload_description = "AI APIM Landing Zone (DEV)"
+
+  # workload_maintained_by = "cedric.mendelin@isolutions.ch"
+
+
+  // workload owner and user configuration
+  workload_owners_group_member_object_ids = [
+    "86984e3c-69ef-4cf0-9c37-3c5e940408cd", # Raphael Burri (guest user)
+    "c17ad8e5-871f-4d00-a6c1-c4b7841dd573", # Lukas Rottach (guest user)
+    "678326f7-78a8-4916-83e8-5671ef662b94", # Cédric Mendelin (guest user)
+    "27adb7f0-20f5-47aa-b0a6-7f8996b0058f", # Sebastian Ebner (guest users)
+    "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
+  ]
+
+  workload_owners_group_owners_object_ids = [
+    "ca4809a9-71f5-49e8-aa1c-0b2de8c4f375", # Global Admin (fallback owner)
+    "678326f7-78a8-4916-83e8-5671ef662b94", # Cédric Mendelin (guest user)
+    "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
+  ]
+
+  workload_owners_group_use_pim = true
+
+  workload_users_group_member_object_ids = [
+    "86984e3c-69ef-4cf0-9c37-3c5e940408cd", # Raphael Burri (guest user)
+    "c17ad8e5-871f-4d00-a6c1-c4b7841dd573", # Lukas Rottach (guest user)
+    "678326f7-78a8-4916-83e8-5671ef662b94", # Cédric Mendelin (guest user)
+    "27adb7f0-20f5-47aa-b0a6-7f8996b0058f", # Sebastian Ebner (guest users)
+    "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
+  ]
+    workload_users_group_owners_object_ids = [
+    "ca4809a9-71f5-49e8-aa1c-0b2de8c4f375", # Global Admin (fallback owner)
+    "678326f7-78a8-4916-83e8-5671ef662b94", # Cédric Mendelin (guest user)
+    "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
+  ]
+  workload_users_group_use_pim = false
+
+  # use this to override the default location if required
+  azure_location = "WestEurope"
+
+  # An existing subscription id
+  subscription_id = "37a89c0f-38d4-4216-be91-e51213bc2b54"
+  # The destination management group ID for the new subscription.
+  subscription_management_group_id = "iaih-d9-mg-ecpa-landingzones-corp"
+
+  # vnet and subnet configuration
+  vnet_address_space = [
+    "10.1.254.0/24"
+  ]
+
+  subnet_configuration = [
+    {
+      name          = "default"
+      address_prefixes = ["10.1.254.0/26"]
+      default_outbound_access_enabled = false
+      private_endpoint_network_policies = "Disabled"
+      private_link_service_network_policies = "Disabled"
+      private_endpoint_allocate = false
+      delegations = []
+      service_endpoints = []
+    },
+    {
+      name          = "apim"
+      address_prefixes = ["10.1.254.64/26"]
+      default_outbound_access_enabled = false
+      private_endpoint_network_policies = "Disabled"
+      private_link_service_network_policies = "Disabled"
+      private_endpoint_allocate = false
+      delegations = [
+        "Microsoft.Web/serverFarms"
+      ]
+      service_endpoints = []
+    },
+    {
+      name          = "private-endpoints"
+      address_prefixes = ["10.1.254.192/26"]
+      private_endpoint_network_policies = "NetworkSecurityGroupEnabled"
+      private_link_service_network_policies = "Disabled"
+      private_endpoint_allocate = true
+      delegations = []
+      service_endpoints = []
+    }
+  ]
+
+  resource_network_communication_mode = "PrivateLink"
+
+  // Azure Virtual WAN connect
+  vwan_connect_enabled = true
+  # if location isn't given, uses either a hub in the same or the default (main) location
+  vwan_hub_location = "SwitzerlandNorth"
+  
+  // Azure Bastion connect
+  bastion_connect_enabled = true
+  
+  //NAT Gateway
+  nat_gateway_creation_enabled = false
+  nat_gateway_public_ip_count = 1
+  nat_gateway_connection_enabled = false  # re-use pre-existing NAT gateway
+  nat_gateway_resource_id = null
+
+  // AzureDevOps Capabilities
+  azure_devops_project_name        = "AI-APIM-LZ-Dev"
+  azure_devops_project_description = "AI-LZ Development Environment (created by Terraform)"
+
+  # unit inputs mostly from unit-common.hcl
+  azure_tags = local.module_azure_tags
+}
