@@ -1,0 +1,9 @@
+{
+    "artefactName": "l2-connectivity-basic-example-vpnGateway",
+
+    "location": "default",
+
+    "virtualHub": {
+        "id": "<ECP_ARTEFACT>:l2-connectivity-default-vwan-hub"
+    }
+}
