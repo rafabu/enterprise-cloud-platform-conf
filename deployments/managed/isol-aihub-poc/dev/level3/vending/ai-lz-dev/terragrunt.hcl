@@ -117,7 +117,8 @@ inputs = {
 
   # vnet and subnet configuration
   vnet_address_space = [
-    "10.1.0.0/24"
+    "10.1.0.0/24",
+    "10.1.1.0/24"
   ]
 
   subnet_configuration = [
@@ -161,6 +162,16 @@ inputs = {
       private_endpoint_network_policies = "NetworkSecurityGroupEnabled"
       private_link_service_network_policies = "Disabled"
       private_endpoint_allocate = true
+      delegations = []
+      service_endpoints = []
+    },
+    {
+      name          = "ado-mpool-dev"
+      address_prefixes = ["10.1.1.0/26"]
+      default_outbound_access_enabled = false
+      private_endpoint_network_policies = "Disabled"
+      private_link_service_network_policies = "Disabled"
+      private_endpoint_allocate = false
       delegations = []
       service_endpoints = []
     }
