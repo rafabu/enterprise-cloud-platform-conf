@@ -172,7 +172,9 @@ inputs = {
       private_endpoint_network_policies = "Disabled"
       private_link_service_network_policies = "Disabled"
       private_endpoint_allocate = false
-      delegations = []
+      delegations = [
+        "Microsoft.DevOpsInfrastructure/pools"
+      ]
       service_endpoints = []
     }
   ]
