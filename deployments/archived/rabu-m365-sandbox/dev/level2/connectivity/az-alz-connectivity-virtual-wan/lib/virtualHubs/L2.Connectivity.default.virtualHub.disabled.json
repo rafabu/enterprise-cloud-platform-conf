@@ -1,7 +1,7 @@
 {
     "artefactName": "l2-connectivity-westeurope-vwan-hub",
     "nameElement": "",
-    
+
     "location": "westeurope",
 
     "addressPrefix": "10.1.0.0/23",

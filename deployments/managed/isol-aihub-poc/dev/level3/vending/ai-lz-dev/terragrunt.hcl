@@ -1,5 +1,5 @@
 # includes merge "inputs", with last include taking precedence over previously defined.
-#     expose: allows content (e.g. locals) to be used by "include" 
+#     expose: allows content (e.g. locals) to be used by "include"
 
 # root common (via git submodule)
 include "root-common" {
@@ -37,8 +37,8 @@ include "unit-common" {
 
 locals {
 
- workload_identifier  = "ailz"
- workload_stage  = "dev"
+  workload_identifier = "ailz"
+  workload_stage      = "dev"
 
 
 
@@ -49,11 +49,11 @@ locals {
 
 inputs = {
   ########## SHOULD BE DEPENDENCY ##########57
-  ecp_parent_management_group_id = "/providers/Microsoft.Management/managementGroups/iaih-d9-mg-ecpa-deployment"
-  ecp_parent_management_group_name = "iaih-d9-mg-ecpa-deployment"
+  ecp_parent_management_group_id            = "/providers/Microsoft.Management/managementGroups/iaih-d9-mg-ecpa-deployment"
+  ecp_parent_management_group_name          = "iaih-d9-mg-ecpa-deployment"
   ecp_azure_devops_managed_devops_pool_name = "ECP-Platform-Pool-iaihd9"
-  ecp_azure_devops_project_name = "ECP"
-  ecp_azure_devops_repository_name = "ECP.Automation"
+  ecp_azure_devops_project_name             = "ECP"
+  ecp_azure_devops_repository_name          = "ECP.Automation"
 
   ecp_azure_deployment_service_principal_client_id = "d94c5781-ea21-4c2c-8216-cf49d75967e6"
   ecp_azure_deployment_service_principal_object_id = "3ef54868-b6f3-493c-b695-9c968bd4b208"
@@ -62,7 +62,7 @@ inputs = {
   # cost_center         = "0000"
   # data_classification = "internal"
 
-  
+
   azure_resource_name_elements = {
     prefixes      = []
     name          = local.workload_identifier
@@ -100,7 +100,7 @@ inputs = {
     "27adb7f0-20f5-47aa-b0a6-7f8996b0058f", # Sebastian Ebner (guest users)
     "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
   ]
-    workload_users_group_owners_object_ids = [
+  workload_users_group_owners_object_ids = [
     "ca4809a9-71f5-49e8-aa1c-0b2de8c4f375", # Global Admin (fallback owner)
     "678326f7-78a8-4916-83e8-5671ef662b94", # Cédric Mendelin (guest user)
     "2ff33bfb-ffdc-41f6-99b5-a78c6c751ec8"  # Francisco Rando (guest user)
@@ -123,55 +123,55 @@ inputs = {
 
   subnet_configuration = [
     {
-      name          = "default"
-      address_prefixes = ["10.1.0.0/26"]
-      default_outbound_access_enabled = false
-      private_endpoint_network_policies = "Disabled"
+      name                                  = "default"
+      address_prefixes                      = ["10.1.0.0/26"]
+      default_outbound_access_enabled       = false
+      private_endpoint_network_policies     = "Disabled"
       private_link_service_network_policies = "Disabled"
-      private_endpoint_allocate = false
-      delegations = []
-      service_endpoints = []
+      private_endpoint_allocate             = false
+      delegations                           = []
+      service_endpoints                     = []
     },
     {
-      name          = "frontend"
-      address_prefixes = ["10.1.0.64/26"]
-      default_outbound_access_enabled = false
-      private_endpoint_network_policies = "Disabled"
+      name                                  = "frontend"
+      address_prefixes                      = ["10.1.0.64/26"]
+      default_outbound_access_enabled       = false
+      private_endpoint_network_policies     = "Disabled"
       private_link_service_network_policies = "Disabled"
-      private_endpoint_allocate = false
+      private_endpoint_allocate             = false
       delegations = [
         "Microsoft.Web/serverFarms"
       ]
       service_endpoints = []
     },
     {
-      name          = "ms-foundry"
-      address_prefixes = ["10.1.0.128/26"]
-      default_outbound_access_enabled = false
-      private_endpoint_network_policies = "Disabled"
+      name                                  = "ms-foundry"
+      address_prefixes                      = ["10.1.0.128/26"]
+      default_outbound_access_enabled       = false
+      private_endpoint_network_policies     = "Disabled"
       private_link_service_network_policies = "Disabled"
-      private_endpoint_allocate = false
+      private_endpoint_allocate             = false
       delegations = [
         "Microsoft.App/environments"
       ]
       service_endpoints = []
     },
     {
-      name          = "private-endpoints"
-      address_prefixes = ["10.1.0.192/26"]
-      private_endpoint_network_policies = "NetworkSecurityGroupEnabled"
+      name                                  = "private-endpoints"
+      address_prefixes                      = ["10.1.0.192/26"]
+      private_endpoint_network_policies     = "NetworkSecurityGroupEnabled"
       private_link_service_network_policies = "Disabled"
-      private_endpoint_allocate = true
-      delegations = []
-      service_endpoints = []
+      private_endpoint_allocate             = true
+      delegations                           = []
+      service_endpoints                     = []
     },
     {
-      name          = "ado-mpool-dev"
-      address_prefixes = ["10.1.1.0/26"]
-      default_outbound_access_enabled = false
-      private_endpoint_network_policies = "Disabled"
+      name                                  = "ado-mpool-dev"
+      address_prefixes                      = ["10.1.1.0/26"]
+      default_outbound_access_enabled       = false
+      private_endpoint_network_policies     = "Disabled"
       private_link_service_network_policies = "Disabled"
-      private_endpoint_allocate = false
+      private_endpoint_allocate             = false
       delegations = [
         "Microsoft.DevOpsInfrastructure/pools"
       ]
@@ -185,15 +185,15 @@ inputs = {
   vwan_connect_enabled = true
   # if location isn't given, uses either a hub in the same or the default (main) location
   vwan_hub_location = "SwitzerlandNorth"
-  
+
   // Azure Bastion connect
   bastion_connect_enabled = true
-  
+
   //NAT Gateway
-  nat_gateway_creation_enabled = true
-  nat_gateway_public_ip_count = 1
-  nat_gateway_connection_enabled = false  # re-use pre-existing NAT gateway
-  nat_gateway_resource_id = null
+  nat_gateway_creation_enabled   = true
+  nat_gateway_public_ip_count    = 1
+  nat_gateway_connection_enabled = false # re-use pre-existing NAT gateway
+  nat_gateway_resource_id        = null
 
   // AzureDevOps Capabilities
   azure_devops_project_name        = "AI-LZ-Dev"

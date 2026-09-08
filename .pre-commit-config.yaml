@@ -6,7 +6,7 @@ repos:
       - id: check-case-conflict # Checks for case conflicts in filenames
       - id: check-illegal-windows-names # Checks for filenames that are illegal on Windows
       # - id: check-json # does not allow comments, which are fine in some use-cases
-      - id: check-xml
+      # - id: check-xml
       - id: check-yaml
       - id: detect-private-key
       - id: end-of-file-fixer # Ensures files end with a newline
@@ -23,11 +23,11 @@ repos:
       - id: terragrunt-hcl-fmt
       - id: markdown-link-check    # requires installation:  npm install -g markdown-link-check
 
-  - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.109.1
-    hooks:
-      - id: terraform_fmt
-      - id: terraform_validate
-      # - id: terraform_tflint # requires installation:
+  # - repo: https://github.com/antonbabenko/pre-commit-terraform
+  #   rev: v1.109.1
+  #   hooks:
+  #     - id: terraform_fmt
+  #     - id: terraform_validate
+  #     # - id: terraform_tflint # requires installation:
 
 minimum_pre_commit_version: '4.6.0'

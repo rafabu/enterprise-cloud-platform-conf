@@ -1,5 +1,5 @@
 # includes merge "inputs", with last include taking precedence over previously defined.
-#     expose: allows content (e.g. locals) to be used by "include" 
+#     expose: allows content (e.g. locals) to be used by "include"
 
 # root common (via git submodule)
 include "root-common" {
@@ -48,4 +48,3 @@ inputs = {
   # deploy only the provate DNS zones we actually need for AI Landing Zone
   # private_link_private_dns_zones_regex_filter = "^privatelink\\.(?:aiservices\\.azure\\.com|cognitiveservices\\.azure\\.com|openai\\.azure\\.com|services\\.ai\\.azure\\.com|blob\\.core\\.windows\\.net|file\\.core\\.windows\\.net|queue\\.core\\.windows\\.net|table\\.core\\.windows\\.net|vaultcore\\.azure\\.net|azurecr\\.io|azconfig\\.io|documents\\.azure\\.com|search\\.windows\\.net|monitor\\.azure\\.com|oms\\.opinsights\\.azure\\.com)$"
 }
-

@@ -10,7 +10,7 @@
     "remoteVpnSite": {
         "id": "<ECP_ARTEFACT>:l2-connectivity-example-staticrouting-vpnsite"
     },
-    
+
     "vpnLinkConnections": [
         {
             "properties": {
@@ -36,7 +36,7 @@
                 "dpdTimeoutSeconds": 0,
                 "vpnLinkConnectionMode": "Default",
                 "vpnGatewayCustomBgpAddresses": [],
-                
+
                 "preSharedKey": {
                     "value": "",
                     "valueRandom": true,

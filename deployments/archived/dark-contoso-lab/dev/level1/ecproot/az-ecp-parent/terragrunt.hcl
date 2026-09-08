@@ -1,5 +1,5 @@
 # includes merge "inputs", with last include taking precedence over previously defined.
-#     expose: allows content (e.g. locals) to be used by "include" 
+#     expose: allows content (e.g. locals) to be used by "include"
 
 # root common (via git submodule)
 include "root-common" {
@@ -51,4 +51,3 @@ inputs = {
     "05b1d8bc-7b58-4695-9a5e-98029da27119" # C-Admin
   ]
 }
-

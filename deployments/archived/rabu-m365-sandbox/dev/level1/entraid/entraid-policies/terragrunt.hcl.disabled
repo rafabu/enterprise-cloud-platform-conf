@@ -1,5 +1,5 @@
 # includes merge "inputs", with last include taking precedence over previously defined.
-#     expose: allows content to be used by "include" 
+#     expose: allows content to be used by "include"
 
 # root common (via git submodule)
 include "root-common" {
@@ -40,4 +40,3 @@ inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
 }
-

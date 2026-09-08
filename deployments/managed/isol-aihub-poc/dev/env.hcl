@@ -47,4 +47,3 @@ inputs = merge(
     ecp_azure_root_parent_management_group_id = local.ecp_azure_root_parent_management_group_id
   } : {}
 )
-  

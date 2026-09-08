@@ -2,7 +2,7 @@
     "artefactName": "l2-connectivity-example-bgprouting-vpnsite",
     "name": "ECP-Example-BGP-Routing",
     "location": "default",
-    
+
     "deviceProperties": {
         "deviceModel": "ExampleModel (optional)",
         "deviceVendor": "ExampleVendor (optional)"
