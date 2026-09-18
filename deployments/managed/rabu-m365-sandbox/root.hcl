@@ -7,7 +7,7 @@ locals {
   ecp_deployment_code   = "rabu" # think as "customer code"
   ecp_deployment_number = "7"
 
-  ecp_azure_main_location = "SwitzerlandNorth"
+  ecp_azure_main_location = "WestEurope"
 
 
   root_azure_tags = {
