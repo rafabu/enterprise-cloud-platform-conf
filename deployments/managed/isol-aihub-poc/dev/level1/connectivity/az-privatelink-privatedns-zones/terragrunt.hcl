@@ -45,6 +45,6 @@ inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
 
-  # deploy only the provate DNS zones we actually need for AI Landing Zone
+  # deploy only the private DNS zones we actually need for AI Landing Zone
   # private_link_private_dns_zones_regex_filter = "^privatelink\\.(?:aiservices\\.azure\\.com|cognitiveservices\\.azure\\.com|openai\\.azure\\.com|services\\.ai\\.azure\\.com|blob\\.core\\.windows\\.net|file\\.core\\.windows\\.net|queue\\.core\\.windows\\.net|table\\.core\\.windows\\.net|vaultcore\\.azure\\.net|azurecr\\.io|azconfig\\.io|documents\\.azure\\.com|search\\.windows\\.net|monitor\\.azure\\.com|oms\\.opinsights\\.azure\\.com)$"
 }
