@@ -108,23 +108,23 @@ Note: This is a local deployment to the bootstrap console environment only; no a
 
 Initialize the providers and cache
 
-- `terragrunt run init --working-dir .\level0\ -- -upgrade`
+- `terragrunt run init --working-dir .\level0\ --filter '!bootstrap/**' --filter '!finalizer/**' -- -upgrade`
 
 Plan
 
-- `terragrunt run plan --all --working-dir .\level0\`
+- `terragrunt run plan --all --working-dir .\level0\ --filter '!bootstrap/**' --filter '!finalizer/**'`
 
 Note: During bootstrapping it is expected to see the odd MOCK value in the planned outputs. This is because no state exists yet, hence terragrunt cannot know the outputs of dependency units.
 
 Apply
 
-- `terragrunt run apply --all --working-dir .\level0\`
+- `terragrunt run apply --all --working-dir .\level0\ --filter '!bootstrap/**' --filter '!finalizer/**'`
 
-IMPORTANT: Move local terraform states to the ECP Environment cloud backend. Simply re-run either the plan or the apply operation:
+IMPORTANT: Move local terraform states to the ECP Environment cloud backend. Simply re-run either the plan or the apply operation, this time including bootstrap and finalizer:
 
-- `terragrunt run apply --all --working-dir .\level0\`
+- `terragrunt run plan --all --working-dir .\level0\`
 
-At the start of each unit's there will be a message fro terragrunt's hook similar to this, confirming the move of the local to the remote state:
+Bootstrap will temporarily open remote access to the freshly created Azure blob storage account. Following this, at the start of each unit there will be a message by terragrunt's hook similar to this, confirming the move of the local terraform state file to the remote state:
 
 ``` txt
 INFO: bootstrap_backend_type_changed: 'true'
