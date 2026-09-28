@@ -108,7 +108,7 @@ Note: This is a local deployment to the bootstrap console environment only; no a
 
 Initialize the providers and cache
 
-- `terragrunt run init --working-dir .\level0\ --filter '!bootstrap/**' --filter '!finalizer/**' -- -upgrade`
+- `terragrunt run init --working-dir .\level0\ --filter '!bootstrap/**' -- -upgrade`
 
 Plan
 

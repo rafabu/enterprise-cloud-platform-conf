@@ -46,32 +46,34 @@ inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
 
-  managed_devops_pool_stateless_agent_profile = {
-    manual_resource_predictions_profile = {
-      time_zone = "W. Europe Standard Time"
-      # all_week_schedule = 2
-      monday_schedule = {
-        # "08:00:00" = 2,
-        # "18:00:00" = 0
-      }
-      tuesday_schedule = {
-        # "08:00:00" = 2,
-        # "18:00:00" = 0
-      }
-      wednesday_schedule = {
-        # "08:00:00" = 2,
-        # "18:00:00" = 0
-      }
-      thursday_schedule = {
-        # "08:00:00" = 2,
-        # "18:00:00" = 0
-      }
-      friday_schedule = {
-        # "08:00:00" = 2,
-        # "18:00:00" = 0
-      }
-      saturday_schedule = {}
-      sunday_schedule   = {}
-    }
-  }
+  # if set to null, the pool will always scale back to zero agents when idle
+  managed_devops_pool_stateless_agent_profile = null
+  # managed_devops_pool_stateless_agent_profile = {
+  #   manual_resource_predictions_profile = {
+  #     time_zone = "W. Europe Standard Time"
+  #     # all_week_schedule = 2
+  #     monday_schedule = {
+  #       # "08:00:00" = 2,
+  #       # "18:00:00" = 0
+  #     }
+  #     tuesday_schedule = {
+  #       # "08:00:00" = 2,
+  #       # "18:00:00" = 0
+  #     }
+  #     wednesday_schedule = {
+  #       # "08:00:00" = 2,
+  #       # "18:00:00" = 0
+  #     }
+  #     thursday_schedule = {
+  #       # "08:00:00" = 2,
+  #       # "18:00:00" = 0
+  #     }
+  #     friday_schedule = {
+  #       # "08:00:00" = 2,
+  #       # "18:00:00" = 0
+  #     }
+  #     saturday_schedule = {}
+  #     sunday_schedule   = {}
+  #   }
+  # }
 }
