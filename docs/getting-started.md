@@ -12,8 +12,8 @@
   - `Azure CLI`
   - `git`
   - `VSCode` (or any other IDE of your choice)
-  - `terragrunt` (>= 1.1.5)
-  - `terraform` (>= 1.16.0)
+  - `terragrunt` (>= 1.2.2)
+  - `terraform` (>= 1.17.2)
 
 ### Entra ID Tenant
 
@@ -57,7 +57,7 @@ Identity running the deployment (user or service principal) must have:
 
 ## Configuration
 
-All configuration lies within this (example) repository. For a fresh *ECP Deployment*, copy the folder structure of an already existing deployment from deployments/examples.
+All configuration resides within this (example) repository. For a fresh *ECP Deployment*, copy the folder structure of an already existing deployment from deployments/examples.
 
 Modify the *.hcl files as required, starting with root.hcl and work down. Most of the terragrunt.hcl config files might be left with their default values for experimental deployments.
 
@@ -104,21 +104,25 @@ setting up the local console's access environment
 
 Note: This is a local deployment to the bootstrap console environment only; no actual terraform resources are going to be created on the ECP Cloud services.
 
-### terraform level0
+### terraform level0 (launchpad)
 
-Initialize the providers and cache
+Expect this this step to take roughly **20 minutes**, depending on the performance of your dev-box. This step will provide a fully functioning launchpad environment with Azure DevOps Pipelines, Self-Hosted Agent Pool, all the required permissions and core Entra ID groups as well as the terraform *remote backend* in zero-trust setup.
+
+1. Initialize the providers and cache
 
 - `terragrunt run init --working-dir .\level0\ --filter '!bootstrap/**' -- -upgrade`
 
-Plan
+2. Plan
 
 - `terragrunt run plan --all --working-dir .\level0\ --filter '!bootstrap/**' --filter '!finalizer/**'`
 
 Note: During bootstrapping it is expected to see the odd MOCK value in the planned outputs. This is because no state exists yet, hence terragrunt cannot know the outputs of dependency units.
 
-Apply
+3. Apply
 
 - `terragrunt run apply --all --working-dir .\level0\ --filter '!bootstrap/**' --filter '!finalizer/**'`
+
+4. Move terraform states to backend
 
 IMPORTANT: Move local terraform states to the ECP Environment cloud backend. Simply re-run either the plan or the apply operation, this time including bootstrap and finalizer:
 
@@ -136,6 +140,61 @@ INFO: bootstrap_backend_type_changed: 'true'
 
 Note: The bootstrap module should (temporarily) open internet based access to the backend storage account(s). This is required to transfer the states from local to remote. Subsequent ADO pipeline based runs will close off access again.
 
-### terraform level0 (pipeline execution)
+### terraforming level 1 - 2
 
-As a quality check, repeat the level0 setup, using the newly created Azure DevOps Pipeline and self-hosted agent pool infrastructure.
+Once level 0 (launchpad) is successfully deployed, there are two ways to proceed for the higher levels:
+
+1. DevOps Pipeline Execution (recommended)
+2. Manual Execution
+
+Expect less friction regarding network access and permission as well as better performance when working with the DevOps pipeline. However, if inspecting and troubleshooting is required, manual runs might prove more helpful.
+
+A full deployment of level 1 - 2 including Azure Landing Zones, Azure Bastion and Azure Virtual WAN setup might take up to 75 minutes. Of which the following units consume the most time:
+
+- Azure Landing Zone - in level 1:
+- Azure Bastion - in level 2:
+- Azure Virtual WAN (without VPN Gateway) - in level 2:
+- Azure Virtual WAN (with VPN Gateway) - in level 2:
+
+#### terraform level1 and level2 (*pipeline execution*)
+
+Open your Azure DevOps portal on web page dev.azure.com/[ORG]/[PROJECT]/_build?view=folders and prepare the following pipeline:
+
+- **ECP Deploy Platform Infrastructure (Level 0-2)**
+
+Every stage will go through a terraform *plan*, a *review* and then an *apply* job sequence. Reviewing is made easier by checking the `Terraform Plan` tab or optionally the raw terraform plan files in the artifact store of each stage.
+
+NOTE: You may want to configure to execute the stages individually. This is possible by clicking `Next: Resources` on the *Run Pipeline* pane. Re-running level 0 is optional but recommended as the pipeline will fully close down remote access to the terraform backend.
+
+##### ECP Pipeline Stages
+
+- *level 0*
+- *level 1 (ecproot)*
+- *level 1 (main)*
+- *level 2*
+
+#### terraform level1 and level2 (*manual execution*)
+
+When running the Deployment manually, the *bootstrap* module can facilitate re-opening remote access to the terraform backend. Apart from this, only standard terragrunt commands are required. Recommended procedure:
+
+1. Enable remote access to backend
+
+- `terragrunt run plan --working-dir .\level0\bootstrap\az-launchpad-bootstrap-helper\`
+
+2. Plan, review and Apply Level 1 (ecproot)
+
+- `terragrunt run plan --all --working-dir .\level1\ --filter 'ecproot/**'`
+- review
+- `terragrunt run apply --all --working-dir .\level1\ --filter 'ecproot/**'`
+
+3. Plan, review and Apply Level 1 (main)
+
+- `terragrunt run plan --all --working-dir .\level1\ --filter '!ecproot/**'`
+- review
+- `terragrunt run apply --all --working-dir .\level1\ --filter '!ecproot/**'`
+
+4. Plan. review and Apply Level 2
+
+- `terragrunt run plan --all --working-dir .\level2\`
+- review
+- `terragrunt run apply --all --working-dir .\level2\`
