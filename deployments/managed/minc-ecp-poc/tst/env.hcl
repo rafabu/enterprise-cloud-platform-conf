@@ -19,6 +19,10 @@ locals {
   ecp_azure_devops_automation_repository_name    = "ECP.Automation"
   ecp_azure_devops_configuration_repository_name = "ECP.Configuration"
 
+  # cannot currently use self-hosted pools with this configuration as to subscription quota limits
+  #     work around by (temporarily) using Microsoft-hosted pool
+  ecp_azure_devops_pool_type = "MicrosoftHosted" #  <<< remove resp. change to 'ManagedDevOpsPool' once quota is available
+
   env_azure_tags = {
     # "hidden-ecpTgUnitEnv" = format("%s/env.hcl", get_parent_terragrunt_dir())
 

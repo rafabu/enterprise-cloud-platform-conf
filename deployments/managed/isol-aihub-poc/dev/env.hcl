@@ -17,6 +17,8 @@ locals {
   ecp_azure_devops_automation_repository_name    = "ECP.Automation"
   ecp_azure_devops_configuration_repository_name = "ECP.Configuration"
 
+  ecp_azure_devops_pool_type = "ManagedDevOpsPool"
+
   env_azure_tags = {
     # "hidden-ecpTgUnitEnv" = format("%s/env.hcl", get_parent_terragrunt_dir())
 
