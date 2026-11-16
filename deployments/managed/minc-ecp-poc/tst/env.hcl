@@ -8,6 +8,8 @@ locals {
   ecp_identity_subscription_id     = "f658ee14-ded4-49ba-90af-89e17ba0ac1c"
   ecp_security_subscription_id     = "fb998ced-b201-4a49-a6d0-60198a013a95"
 
+  # must match foler name inside environment directory
+  # e.g., if the folder is "tst", this should be "tst" as well
   ecp_deployment_env = "tst"
 
   ecp_network_main_ipv4_address_space = "10.13.0.0/16" # IPv4 address from which ECP networks will be derived; normally the lowest IP a /16 address space
