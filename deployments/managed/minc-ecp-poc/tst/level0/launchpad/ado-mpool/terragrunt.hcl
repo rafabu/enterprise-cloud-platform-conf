@@ -48,7 +48,7 @@ inputs = {
 
   # cannot currently use self-hosted pools with this configuration as to subscription quota limits
   #     work around by (temporarily) using Microsoft-hosted pool
-  devops_pool_type = "MicrosoftHosted"
+  devops_pool_type = "MicrosoftHosted" #  <<< remove resp. change to 'ManagedDevOpsPool' once quota is available
 
   # if set to null, the pool will always scale back to zero agents when idle
   managed_devops_pool_maximum_concurrency = null
