@@ -47,5 +47,14 @@ inputs = merge(
   } : {},
   length(try(local.ecp_azure_root_parent_management_group_id, "")) > 0 ? {
     ecp_azure_root_parent_management_group_id = local.ecp_azure_root_parent_management_group_id
-  } : {}
+  } : {},
+  length(try(local.ecp_azure_devops_pool_type, "")) > 0 ? {
+    ecp_azure_devops_pool_type = local.ecp_azure_devops_pool_type
+  } : {},
+  {
+    # deploy only the private DNS zones we actually need for ACP Demo
+    # - storage account
+    # - key vault
+    private_link_private_dns_zones_regex_filter = "^privatelink\\.(?:azurewebsites\\.net|blob\\.core\\.windows\\.net|file\\.core\\.windows\\.net|queue\\.core\\.windows\\.net|table\\.core\\.windows\\.net|vaultcore\\.azure\\.net)$"
+  }
 )
