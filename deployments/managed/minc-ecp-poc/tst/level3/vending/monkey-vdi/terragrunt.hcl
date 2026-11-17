@@ -49,7 +49,7 @@ inputs = {
   ########## SHOULD BE DEPENDENCY ##########57
   # ecp_parent_management_group_id            = "/providers/Microsoft.Management/managementGroups/rabu-d7-mg-ecpa-deployment"
   # ecp_parent_management_group_name          = "rabu-d7-mg-ecpa-deployment"
-  ecp_azure_devops_managed_devops_pool_name = "ECP-Platform-Pool-Monkeys-Incorporated"
+  ecp_azure_devops_managed_devops_pool_name = "Azure Pipelines"
   ecp_azure_devops_project_name             = "ECP"
   ecp_azure_devops_repository_name          = "ECP.Automation"
 
