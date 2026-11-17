@@ -53,7 +53,7 @@ inputs = merge(
   } : {},
   {
     # deploy only the private DNS zones we actually need for ACP Demo
-    # - storage account
+    # - storage account (blob only)
     # - key vault
     private_link_private_dns_zones_regex_filter = "^privatelink\\.(?:blob\\.core\\.windows\\.net|vaultcore\\.azure\\.net)$"
   }
