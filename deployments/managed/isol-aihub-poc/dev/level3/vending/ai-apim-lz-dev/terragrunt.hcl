@@ -48,20 +48,6 @@ locals {
 }
 
 inputs = {
-  ########## SHOULD BE DEPENDENCY ##########57
-  ecp_parent_management_group_id            = "/providers/Microsoft.Management/managementGroups/iaih-d9-mg-ecpa-deployment"
-  ecp_parent_management_group_name          = "iaih-d9-mg-ecpa-deployment"
-  ecp_azure_devops_managed_devops_pool_name = "ECP-Platform-Pool-iaihd9"
-  ecp_azure_devops_project_name             = "ECP"
-  ecp_azure_devops_repository_name          = "ECP.Automation"
-
-  ecp_azure_deployment_service_principal_client_id = "d94c5781-ea21-4c2c-8216-cf49d75967e6"
-  ecp_azure_deployment_service_principal_object_id = "3ef54868-b6f3-493c-b695-9c968bd4b208"
-
-  # business_unit       = "????"
-  # cost_center         = "0000"
-  # data_classification = "internal"
-
 
   azure_resource_name_elements = {
     prefixes      = []

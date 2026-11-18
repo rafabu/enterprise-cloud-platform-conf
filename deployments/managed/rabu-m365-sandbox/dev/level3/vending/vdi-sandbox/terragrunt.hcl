@@ -46,20 +46,6 @@ locals {
 }
 
 inputs = {
-  ########## SHOULD BE DEPENDENCY ##########57
-  # ecp_parent_management_group_id            = "/providers/Microsoft.Management/managementGroups/rabu-d7-mg-ecpa-deployment"
-  # ecp_parent_management_group_name          = "rabu-d7-mg-ecpa-deployment"
-  ecp_azure_devops_managed_devops_pool_name = "ECP-Platform-Pool-rabuzu-m365"
-  ecp_azure_devops_project_name             = "ECP (rabu-d7)"
-  ecp_azure_devops_repository_name          = "ECP.Automation"
-
-  ecp_azure_deployment_service_principal_client_id = "c4527461-c497-4db4-911f-1a1ae4258f11"
-  ecp_azure_deployment_service_principal_object_id = "097fcb81-557b-44e5-8077-a113d634ce3c"
-
-  # business_unit       = "????"
-  # cost_center         = "0000"
-  # data_classification = "internal"
-
 
   azure_resource_name_elements = {
     prefixes      = []
