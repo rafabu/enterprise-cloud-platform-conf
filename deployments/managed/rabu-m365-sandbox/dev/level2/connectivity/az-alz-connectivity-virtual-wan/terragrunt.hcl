@@ -32,7 +32,7 @@ include "unit-common" {
   path = format("%s/lib/terragrunt-common/ecp-v1/%s/unit-common.hcl", get_repo_root(), regexall("^.*(?:\\\\|/)(.+?(?:\\\\|/).+?(?:\\\\|/).+?)$", get_terragrunt_dir())[0][0])
 
   expose         = false
-  merge_strategy = "deep"
+  merge_strategy = "shallow"
 }
 
 locals {
