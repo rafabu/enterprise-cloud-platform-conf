@@ -46,9 +46,6 @@ inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
 
-  # if set to null, the pool will always scale back to zero agents when idle
-  managed_devops_pool_maximum_concurrency = null
-
   # managed_devops_pool_stateless_agent_profile = {
   #   manual_resource_predictions_profile = {
   #     time_zone = "W. Europe Standard Time"

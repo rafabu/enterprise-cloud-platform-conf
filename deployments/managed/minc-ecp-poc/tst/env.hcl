@@ -18,10 +18,7 @@ locals {
   ecp_azure_devops_project_name                  = "ECP"
   ecp_azure_devops_automation_repository_name    = "ECP.Automation"
   ecp_azure_devops_configuration_repository_name = "ECP.Configuration"
-
-  # cannot currently use self-hosted pools with this configuration as to subscription quota limits
-  #     work around by (temporarily) using Microsoft-hosted pool
-  ecp_azure_devops_pool_type = "MicrosoftHosted" #  <<< remove resp. change to 'ManagedDevOpsPool' once quota is available
+  ecp_azure_devops_pool_type                     = "ManagedDevOpsPool" # <<< change to 'MicrosoftHosted' if no quota is available
 
   env_azure_tags = {
     # "hidden-ecpTgUnitEnv" = format("%s/env.hcl", get_parent_terragrunt_dir())
@@ -43,8 +40,6 @@ inputs = merge(
     # - storage account
     # - key vault
     private_link_private_dns_zones_regex_filter = "^privatelink\\.(?:azurewebsites\\.net|blob\\.core\\.windows\\.net|file\\.core\\.windows\\.net|queue\\.core\\.windows\\.net|table\\.core\\.windows\\.net|vaultcore\\.azure\\.net)$"
-
-
   },
   length(try(local.ecp_azure_main_location, "")) > 0 ? {
     azure_location = local.ecp_azure_main_location
