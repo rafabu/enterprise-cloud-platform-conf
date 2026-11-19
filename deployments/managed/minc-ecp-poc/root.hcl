@@ -7,7 +7,7 @@ locals {
   ecp_deployment_code   = "minc" # Monkeys Incorporated (Simon Leu)
   ecp_deployment_number = "1"
 
-  ecp_azure_main_location = "SwitzerlandNorth"
+  ecp_azure_main_location = "SwedenCentral"
 
 
   root_azure_tags = {
