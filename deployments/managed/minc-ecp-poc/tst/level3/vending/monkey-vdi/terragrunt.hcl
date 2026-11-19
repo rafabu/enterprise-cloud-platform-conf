@@ -77,7 +77,7 @@ inputs = {
   workload_users_group_use_pim = false
 
   # use this to override the default location if required
-  azure_location = "SwitzerlandNorth"
+  # azure_location = "SwedenCentral"
 
   # An existing subscription id
   subscription_id = "fc0b7aad-2711-4b4e-bd91-a0d898583fad"
