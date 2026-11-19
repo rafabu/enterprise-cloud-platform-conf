@@ -31,11 +31,6 @@ inputs = merge(
   {
     azure_tags = local.env_azure_tags
 
-    managed_devops_pool_maximum_concurrency = null
-    managed_devops_pool_vmss_fabric_profile = {
-      sku_name = "Standard_D2as_v5"
-    }
-
     # deploy only the private DNS zones we actually need for ACP Demo
     # - storage account
     # - key vault

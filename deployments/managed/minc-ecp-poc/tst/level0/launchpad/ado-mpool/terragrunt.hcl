@@ -46,6 +46,9 @@ inputs = {
   # unit inputs mostly from unit-common.hcl
   azure_tags = local.module_azure_tags
 
+  managed_devops_pool_stateless_agent_profile = {
+    manual_resource_predictions_profile = null
+  }
   # managed_devops_pool_stateless_agent_profile = {
   #   manual_resource_predictions_profile = {
   #     time_zone = "W. Europe Standard Time"
@@ -74,4 +77,7 @@ inputs = {
   #     sunday_schedule   = {}
   #   }
   # }
+  managed_devops_pool_vmss_fabric_profile = {
+    sku_name = "Standard_D2as_v5"
+  }
 }
