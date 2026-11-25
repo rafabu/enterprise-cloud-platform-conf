@@ -9,6 +9,13 @@ locals {
 
   ecp_azure_main_location = "SwitzerlandNorth"
 
+  # allowed locations are enforced only with "SLZ" library pattern
+  ecp_azure_allowed_locations = [
+    "SwitzerlandNorth",
+    "SwitzerlandWest",
+    "Global"
+  ]
+
   # define which Azure Landing Zones "Library" should be applied: ALZ or SLZ
   ecp_deployment_alz_library = "slz" # if not provided, defaults to "alz"
 
