@@ -9,6 +9,16 @@ locals {
 
   ecp_azure_main_location = "SwitzerlandNorth"
 
+  # allowed locations are enforced only with "SLZ" library pattern
+  # ecp_azure_allowed_locations = [
+  #   "SwitzerlandNorth",
+  #   "SwitzerlandWest",
+  #   "Global"
+  # ]
+
+  # define which Azure Landing Zones "Library" should be applied: ALZ or SLZ
+  ecp_deployment_alz_library = "alz" # if not provided, defaults to "alz"
+
 
   root_azure_tags = {
     # "hidden-ecpTgUnitRoot" = format("%s/root.hcl", get_parent_terragrunt_dir())
