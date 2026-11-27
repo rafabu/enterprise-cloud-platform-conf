@@ -58,5 +58,12 @@ inputs = {
     vpn_connection = []
     er_gateway     = []
     er_connection  = []
+    # vWAN supports only "Standard" or "Premium" firewall SKUs
+    firewall = [
+      "l2-connectivity-firewall-standard-sku"
+    ]
+    firewall_policy = [
+      "l2-connectivity-firewallpolicy-basic-sku"
+    ]
   }
 }
